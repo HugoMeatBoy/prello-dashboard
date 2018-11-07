@@ -6,7 +6,7 @@ import './style.css';
 
 // ==================================
 
-const CardStateView = props =>(
+const ListCardsView = props =>(
     <div className="col-sm-6 dataType">
         <div className="dataValues">
             <Pie data = {props.data} 
@@ -15,7 +15,7 @@ const CardStateView = props =>(
                 options={{
                     title: {
                         display: true,
-                        text: 'Lists',
+                        text: 'Cards per list',
                         fontSize: 20
                     },
                     maintainAspectRatio: true,
@@ -42,4 +42,4 @@ const CardStateView = props =>(
 
 )
 
-export default CardStateView
+export default ListCardsView

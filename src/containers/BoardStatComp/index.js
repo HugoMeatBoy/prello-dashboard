@@ -1,9 +1,10 @@
 import React from 'react';
-import CardStateView from '../../component/views/CardStateView';
+import ListCardsView from '../../component/views/ListCardsView';
 import CardLabelView from '../../component/views/CardLabelView';
 import GeneralInfoView from '../../component/views/GeneralInfoView';
 import BoardActivityView from '../../component/views/BoardActivityView';
 import DueDateView from '../../component/views/DueDateView';
+import MembersCardsView from '../../component/views/MembersCardsView';
 
 // ===== Models
 
@@ -83,8 +84,7 @@ class BoardStatComp extends React.Component {
             dueDateData: {
                 labels: ['Overdue', 'Due tomorrow', 'Later this week', 'Later this month'],
                 datasets: [{
-                    label: 'Due dates',
-                    data:[2,1,7,3],
+                    data: [2,1,7,3],
                     backgroundColor: [
                         '#FF6384',
                         '#c48b56',
@@ -93,6 +93,30 @@ class BoardStatComp extends React.Component {
                     ],
                     borderColor: '#FF6384',
                     fill: -1
+                }]
+            },
+            cardsPerMemberData: {
+                labels: ['Clément R', 'Kévin H', 'Hugo F', 'Clément L', 'Cyprien L'],
+                datasets: [{
+                    label: "Overdue",
+                    data: [0,1,1,3,2],
+                    backgroundColor:[
+                        '#ff9f40',
+                        '#ff9f40',
+                        '#ff9f40',
+                        '#ff9f40',
+                        '#ff9f40'
+                    ]
+                },{
+                    label: "Due later",
+                    data: [7,5,3,4,3],
+                    backgroundColor:[
+                        '#55a05a',
+                        '#55a05a',
+                        '#55a05a',
+                        '#55a05a',
+                        '#55a05a'
+                    ]
                 }]
             }
         }
@@ -105,19 +129,21 @@ class BoardStatComp extends React.Component {
                 <div className="row">
                     <div className="col-sm-12 boardSettingsBar">
                         <h1 className="boardSettingsBtn boardName">{this.props.board.name}</h1>
-                        <i className="far fa-star boardSettingsBtn starBtn" />
                     </div>
                 </div>
 
                 <GeneralInfoView data={this.state.general}/>
 
                 <div className="row">
-                    <CardStateView data={this.state.cardsData}/>
+                    <ListCardsView data={this.state.cardsData}/>
                     <CardLabelView data={this.state.labelsData}/>
                 </div>
                 <div className="row">
                     <BoardActivityView data={this.state.boardActivityData}/>
                     <DueDateView data={this.state.dueDateData}/>
+                </div>
+                <div className="row">
+                    <MembersCardsView data={this.state.cardsPerMemberData}/>
                 </div>
             </div>
         );
