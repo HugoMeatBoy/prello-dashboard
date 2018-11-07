@@ -1,0 +1,44 @@
+.boardSettingsBar {
+    background-color: #eee;
+    flex: none;
+    margin: 0 0px;
+    margin-bottom: 10px;
+}
+
+.boardName {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+.boardSettingsBtn {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin-right: 5px;
+}
+
+.boardSettingsBtn:hover {
+    cursor: pointer;
+}
+
+.starBtn:hover {
+    color: rgb(227, 227, 79)
+}
+
+.boardStatsPanel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chartTitle {
+    text-align: center;
+    display: inline-block;
+    font-size: 1.5rem;
+    flex: none;
+    width:100%;
+}

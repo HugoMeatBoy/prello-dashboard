@@ -1,0 +1,48 @@
+.header-bar {
+    background-color: #004a75;
+    box-shadow: 0 1px 2px;
+    display: flex;
+    flex: none;
+    height: 50px;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-bar > div {
+    flex: 1;
+}
+
+.centerHeader-div {
+    line-height: 50px;
+    text-align: center;
+}
+
+.rightHeader-div {
+    text-align: right;
+}
+
+.btn-header {
+    background: #009cdd;
+    box-shadow: 0 0px 1px #222 inset;
+    color: white;
+    height: 40px;
+    margin: 5px;
+}
+
+.btn-header:hover {
+    box-shadow: none;
+    color: #e8e8e8;
+}
+
+.prello-logo {
+    height: 35px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.prello-logo:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: 0.2s;
+}
