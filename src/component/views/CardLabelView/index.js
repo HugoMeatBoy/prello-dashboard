@@ -46,6 +46,14 @@ const CardLabelView = props =>(
                         display: false
                     },
                     maintainAspectRatio: true,
+                    scales:{
+                        yAxes:[{
+                            ticks:{
+                                suggestedMin: 0,
+                                suggestedMax: 11
+                            }
+                        }]
+                    }
                 }}
             />
         </div>
