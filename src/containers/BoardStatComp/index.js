@@ -1,5 +1,10 @@
 import React from 'react';
-import {Pie, Doughnut, Line} from 'react-chartjs-2';
+import CardStateView from '../../component/views/CardStateView'
+import CardLabelView from '../../component/views/CardLabelView'
+import CardsNumberView from '../../component/views/CardsNumberView'
+import MembersNumberView from '../../component/views/MembersNumberView'
+
+
 // ===== Models
 
 // ===== Components / Containers
@@ -63,50 +68,13 @@ class BoardStatComp extends React.Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-sm-6 dataType">
-                        <div className="dataValues">
-                            Number of cards in board: <b>16</b>
-                        </div>
-                    </div>
-                    <div className="col-sm-6 dataType">
-                        <div className="dataValues">
-                            Number of members in board: <b>5</b>
-                        </div>
-                    </div>
+                    <CardsNumberView data={5}/>
+                    <CardsNumberView data={5}/>
                 </div>
 
                 <div className="row">
-                    <div className="col-sm-6 dataType">
-                        <div className="dataValues">
-                            <h1 className="chartTitle">
-                                Cards state
-                            </h1>
-                            <Pie data = {this.state.cardsData} 
-                                width={20}
-                                height={10}
-                                options={{
-                                    maintainAspectRatio: true
-                                }}
-                            />
-                        </div>
-                    </div>
-                    <div className="col-sm-6 dataType">
-                        <div className="dataValues">
-                            <h1 className="chartTitle">
-                                Cards labels
-                            </h1>
-                            <Doughnut 
-                                data = {this.state.labelsData} 
-                                width={30}
-                                height={10}
-                                options={{
-                                    maintainAspectRatio: true,
-                                    circumference: Math.PI,
-                                    rotation: Math.PI
-                                }}
-                            />
-                        </div>
-                    </div>
+                    <CardStateView data={this.state.cardsData}/>
+                    <CardLabelView data={this.state.labelsData}/>
                 </div>
             </div>
         );
