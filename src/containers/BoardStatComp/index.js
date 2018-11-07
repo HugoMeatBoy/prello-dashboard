@@ -1,9 +1,9 @@
 import React from 'react';
-import CardStateView from '../../component/views/CardStateView'
-import CardLabelView from '../../component/views/CardLabelView'
-import GeneralInfoView from '../../component/views/GeneralInfoView'
-import BoardActivityView from '../../component/views/BoardActivityView'
-
+import CardStateView from '../../component/views/CardStateView';
+import CardLabelView from '../../component/views/CardLabelView';
+import GeneralInfoView from '../../component/views/GeneralInfoView';
+import BoardActivityView from '../../component/views/BoardActivityView';
+import DueDateView from '../../component/views/DueDateView';
 
 // ===== Models
 
@@ -34,7 +34,6 @@ class BoardStatComp extends React.Component {
                     'Done',
                 ],
                 datasets: [{
-                    label:'Cards state',
                     data: [4, 45, 48, 29],
                     backgroundColor: [
                     '#FF6384',
@@ -80,6 +79,22 @@ class BoardStatComp extends React.Component {
 					fill: false,
 				}]
             },
+
+            dueDateData: {
+                labels: ['Overdue', 'Due tomorrow', 'Later this week', 'Later this month'],
+                datasets: [{
+                    label: 'Due dates',
+                    data:[2,1,7,3],
+                    backgroundColor: [
+                        '#FF6384',
+                        '#c48b56',
+                        '#6ea0c9',
+                        '#55a05a'
+                    ],
+                    borderColor: '#FF6384',
+                    fill: -1
+                }]
+            }
         }
     }
 
@@ -102,6 +117,7 @@ class BoardStatComp extends React.Component {
                 </div>
                 <div className="row">
                     <BoardActivityView data={this.state.boardActivityData}/>
+                    <DueDateView data={this.state.dueDateData}/>
                 </div>
             </div>
         );
