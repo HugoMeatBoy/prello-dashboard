@@ -63,41 +63,49 @@ class BoardStatComp extends React.Component {
                 </div>
 
                 <div className="row">
-                    <div className="col-sm-6">
-                        Number of cards in board: <b>16</b>
+                    <div className="col-sm-6 dataType">
+                        <div className="dataValues">
+                            Number of cards in board: <b>16</b>
+                        </div>
                     </div>
-                    <div className="col-sm-6">
-                        Number of members in board: <b>5</b>
+                    <div className="col-sm-6 dataType">
+                        <div className="dataValues">
+                            Number of members in board: <b>5</b>
+                        </div>
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-sm-6">
-                    <h1 className="chartTitle">
-                        Cards state
-                    </h1>
-                        <Pie data = {this.state.cardsData} 
-                        width={38}
-                        height={10}
-                        options={{
-                            maintainAspectRatio: true
-                        }}
-                        />
+                    <div className="col-sm-6 dataType">
+                        <div className="dataValues">
+                            <h1 className="chartTitle">
+                                Cards state
+                            </h1>
+                            <Pie data = {this.state.cardsData} 
+                                width={20}
+                                height={10}
+                                options={{
+                                    maintainAspectRatio: true
+                                }}
+                            />
+                        </div>
                     </div>
-                    <div className="col-sm-6">
-                        <h1 className="chartTitle">
-                            Cards labels
-                        </h1>
-                        <Doughnut 
-                            data = {this.state.labelsData} 
-                            width={50}
-                            height={10}
-                            options={{
-                                maintainAspectRatio: true,
-                                circumference: Math.PI,
-                                rotation: Math.PI
-                            }}
-                        />
+                    <div className="col-sm-6 dataType">
+                        <div className="dataValues">
+                            <h1 className="chartTitle">
+                                Cards labels
+                            </h1>
+                            <Doughnut 
+                                data = {this.state.labelsData} 
+                                width={30}
+                                height={10}
+                                options={{
+                                    maintainAspectRatio: true,
+                                    circumference: Math.PI,
+                                    rotation: Math.PI
+                                }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

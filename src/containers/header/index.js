@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // ===== Actions
 
@@ -9,9 +8,6 @@ import './style.css';
 
 class Header extends React.Component {
     render() {
-        const {
-            goAbout, goBoardExample, goHome, goProfile, goRegister, goSignIn,
-        } = this.props;
         const element = (
             <div className="header-bar">
                 
@@ -23,8 +19,6 @@ class Header extends React.Component {
         return element;
     }
 }
-Header.propTypes = {
-};
 
 // Put info from the store state in props (None)
 

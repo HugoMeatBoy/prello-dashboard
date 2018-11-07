@@ -42,3 +42,14 @@
     flex: none;
     width:100%;
 }
+
+.dataType {
+    text-align: center;
+    padding: 10px;
+}
+
+.dataValues {
+    padding: 10px;
+    background-color: #dbdbed !important;
+    border-radius: 0.25rem !important;
+}
