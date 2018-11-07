@@ -15,7 +15,7 @@ const CardStateView = props =>(
                 options={{
                     title: {
                         display: true,
-                        text: 'Cards state',
+                        text: 'Lists',
                         fontSize: 20
                     },
                     maintainAspectRatio: true,

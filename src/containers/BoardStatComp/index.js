@@ -1,8 +1,7 @@
 import React from 'react';
 import CardStateView from '../../component/views/CardStateView'
 import CardLabelView from '../../component/views/CardLabelView'
-import CardsNumberView from '../../component/views/CardsNumberView'
-import MembersNumberView from '../../component/views/MembersNumberView'
+import GeneralInfoView from '../../component/views/GeneralInfoView'
 import BoardActivityView from '../../component/views/BoardActivityView'
 
 
@@ -21,15 +20,18 @@ class BoardStatComp extends React.Component {
         super(props);
         this.state={
             general:{
-                membersNumber: 20,
-                cardsNumber: 5,
+                membersNumber: 5,
+                cardsNumber: 25,
+                listsNumber: 7,
+                firstCardCreated: "2018-10-01 - 16:49:25",
+                lastCardCreated: "2018-12-07 - 14:09:42"
             },
             cardsData : {
                 labels: [
-                    'Due date missed',
+                    'To do',
                     'In process',
-                    'Todo',
-                    'Done in time',
+                    'Testing',
+                    'Done',
                 ],
                 datasets: [{
                     label:'Cards state',
@@ -92,10 +94,7 @@ class BoardStatComp extends React.Component {
                     </div>
                 </div>
 
-                <div className="row">
-                    <CardsNumberView data={this.state.general}/>
-                    <MembersNumberView data={this.state.general.membersNumber}/>
-                </div>
+                <GeneralInfoView data={this.state.general}/>
 
                 <div className="row">
                     <CardStateView data={this.state.cardsData}/>
