@@ -6,9 +6,14 @@ import './style.css';
 // ==================================
 
 const CardsNumberView = props =>(    
-    <div className="col-sm-6 dataType">
+    <div className="dataType row">
         <div className="dataValues">
-            Number of cards in board: <b>{props.data}</b>
+            <div className="col-sm-6">
+                Number of cards in board: <b>{props.data.cardsNumber}</b>
+            </div>
+            <div className="col-sm-6">
+                Number of members in board: <b>{props.data.membersNumber}</b>
+            </div>
         </div>
     </div>
 )

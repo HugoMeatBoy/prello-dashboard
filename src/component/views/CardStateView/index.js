@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Pie, Bar} from 'react-chartjs-2';
 
 // ===== Others
 import './style.css';
@@ -9,18 +9,37 @@ import './style.css';
 const CardStateView = props =>(
     <div className="col-sm-6 dataType">
         <div className="dataValues">
-            <h1 className="chartTitle">
-                Cards state
-            </h1>
             <Pie data = {props.data} 
                 width={20}
                 height={10}
                 options={{
-                    maintainAspectRatio: true
+                    title: {
+                        display: true,
+                        text: 'Cards state',
+                        fontSize: 20
+                    },
+                    maintainAspectRatio: true,
+                }}
+            />
+        </div>
+        <div className="dataValues">
+            <Bar data = {props.data} 
+                width={20}
+                height={10}
+                options={{
+                    maintainAspectRatio: true,
+                    legend: {
+                        display:false
+                    },
                 }}
             />
         </div>
     </div>
+
+
+
+
+
 )
 
 export default CardStateView
