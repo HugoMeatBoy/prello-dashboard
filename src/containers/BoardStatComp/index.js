@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {Doughnut} from 'react-chartjs-2';
 // ===== Models
 
 // ===== Components / Containers
@@ -8,6 +8,28 @@ import PropTypes from 'prop-types';
 
 // ===== Others
 import './style.css';
+
+const data = {
+	labels: [
+		'Red',
+		'Green',
+		'Yellow'
+	],
+	datasets: [{
+		data: [300, 50, 100],
+		backgroundColor: [
+		'#FF6384',
+		'#36A2EB',
+		'#FFCE56'
+		],
+		hoverBackgroundColor: [
+		'#FF6384',
+		'#36A2EB',
+		'#FFCE56'
+		]
+	}]
+};
+
 
 class BoardStatComp extends React.Component {
     constructor(props) {
@@ -18,9 +40,7 @@ class BoardStatComp extends React.Component {
     render() {
         return (
             <div>
-                <p>
-                    Board
-                </p>
+                <Doughnut data = {data} />
             </div>
 
         );
