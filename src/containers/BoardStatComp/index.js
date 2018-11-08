@@ -139,7 +139,7 @@ class BoardStatComp extends React.Component {
                 <Tabs>
                     <TabList>
                         <Tab>Cards</Tab>
-                        <Tab>Baord</Tab>
+                        <Tab>Board</Tab>
                         <Tab>Members</Tab>
                     </TabList>
 
