@@ -15,11 +15,14 @@ const GeneralInfoView = props =>(
         </div>
 
         <div className="row">
-            <div className="col-sm-6">
+            <div className="col-sm-4">
                 First card created: <b>{props.data.firstCardCreated}</b>
             </div>
-            <div className="col-sm-6">
+            <div className="col-sm-4">
                 Last card created: <b>{props.data.lastCardCreated}</b>
+            </div>
+            <div className="col-sm-4">
+                Checklists completed: <b>{props.data.checklistsCompleted}%</b>
             </div>
         </div>
         

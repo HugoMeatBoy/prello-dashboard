@@ -5,6 +5,7 @@ import GeneralInfoView from '../../component/views/GeneralInfoView';
 import BoardActivityView from '../../component/views/BoardActivityView';
 import DueDateView from '../../component/views/DueDateView';
 import MembersCardsView from '../../component/views/MembersCardsView';
+import BoardOrientationView from '../../component/views/BoardOrientationView';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -27,7 +28,8 @@ class BoardStatComp extends React.Component {
                 cardsNumber: 25,
                 listsNumber: 7,
                 firstCardCreated: "2018-10-01 - 16:49:25",
-                lastCardCreated: "2018-12-07 - 14:09:42"
+                lastCardCreated: "2018-12-07 - 14:09:42",
+                checklistsCompleted: "64"
             },
             cardsData : {
                 labels: [
@@ -52,15 +54,21 @@ class BoardStatComp extends React.Component {
                     'Front-end',
                     'Urgent',
                     'Database',
+                    'Document',
+                    'Conception',
                 ],
-                datasets: [{
-                    data: [8, 10, 9, 4],
+                datasets: [{                   
+                    data: [8, 10, 9, 4,5,8],
                     backgroundColor: [
                     '#FF6384',
                     '#c48b56',
-                    '#6ea0c9',
-                    '#55a05a'
-                    ]
+                    '#c40f12',
+                    '#55a05a',
+                    '#54a00b',
+                    '#6ea0c9'
+                    ],
+                    fill: -1,
+                    borderColor: '#ffffff'
                 }]
             },
 
@@ -130,7 +138,7 @@ class BoardStatComp extends React.Component {
             <div className="boardStatsPanel">
                 <div className="row">
                     <div className="col-sm-12 boardSettingsBar">
-                        <h1 className="boardSettingsBtn boardName">{this.props.board.name}</h1>
+                        <h1 className="boardName">{this.props.board.name}</h1>
                     </div>
                 </div>
 
@@ -149,12 +157,17 @@ class BoardStatComp extends React.Component {
                         <CardLabelView data={this.state.labelsData}/>
                     </div>
                 </TabPanel>
+                
                 <TabPanel>
                     <div className="row">
                         <BoardActivityView data={this.state.boardActivityData}/>
                         <DueDateView data={this.state.dueDateData}/>
                     </div>
+                    <div className="row">
+                        <BoardOrientationView data={this.state.labelsData}/>
+                    </div>
                 </TabPanel>
+
                 <TabPanel>
                     <div className="row">
                         <MembersCardsView data={this.state.cardsPerMemberData}/>
