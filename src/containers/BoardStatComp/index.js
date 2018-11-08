@@ -6,6 +6,8 @@ import BoardActivityView from '../../component/views/BoardActivityView';
 import DueDateView from '../../component/views/DueDateView';
 import MembersCardsView from '../../component/views/MembersCardsView';
 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 // ===== Models
 
 // ===== Components / Containers
@@ -134,17 +136,32 @@ class BoardStatComp extends React.Component {
 
                 <GeneralInfoView data={this.state.general}/>
 
-                <div className="row">
-                    <ListCardsView data={this.state.cardsData}/>
-                    <CardLabelView data={this.state.labelsData}/>
-                </div>
-                <div className="row">
-                    <BoardActivityView data={this.state.boardActivityData}/>
-                    <DueDateView data={this.state.dueDateData}/>
-                </div>
-                <div className="row">
-                    <MembersCardsView data={this.state.cardsPerMemberData}/>
-                </div>
+                <Tabs>
+                    <TabList>
+                        <Tab>Cards</Tab>
+                        <Tab>Baord</Tab>
+                        <Tab>Members</Tab>
+                    </TabList>
+
+                <TabPanel>
+                    <div className="row">
+                        <ListCardsView data={this.state.cardsData}/>
+                        <CardLabelView data={this.state.labelsData}/>
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className="row">
+                        <BoardActivityView data={this.state.boardActivityData}/>
+                        <DueDateView data={this.state.dueDateData}/>
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className="row">
+                        <MembersCardsView data={this.state.cardsPerMemberData}/>
+                    </div>
+                </TabPanel>
+
+                </Tabs>
             </div>
         );
     }
