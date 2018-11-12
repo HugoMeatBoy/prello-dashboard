@@ -139,6 +139,7 @@ class BoardStatComp extends React.Component {
             <div className="boardStatsPanel">
                 <div className="row">
                     <div className="col-sm-12 boardSettingsBar">
+                        <ImportDataHeader />
                         <h1 className="boardName">{this.props.board.name}</h1>
                     </div>
                 </div>
