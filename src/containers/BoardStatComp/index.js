@@ -12,19 +12,45 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 // ===== Models
 
+// ===== Helpers
+import DataToGeneral from '../../helpers/DataToGeneral';
+
 // ===== Components / Containers
 
 // ===== Actions
 
 // ===== Others
 import './style.css';
+import * as dataJson from '../../data/dataBoardTest';
 
 
 class BoardStatComp extends React.Component {
     constructor(props) {
         super(props);
+
+
         this.handleFileChange = this.handleFileChange.bind(this);
+        this.fileReader = new FileReader();
+
+        this.fileReader.onload = (event) => {
+
+            var gen = DataToGeneral(JSON.parse(event.target.result));
+            if(gen){
+                this.setState({
+                    general:{
+                        listsNumber: gen.listsNumber,
+                        cardsNumber: gen.cardsNumber,
+                        checklistsCompleted: gen.checklistsCompleted
+                    }
+                })
+            }
+        
+            this.setState({ file: JSON.parse(event.target.result) }, () => {
+                console.log(this.state.file);
+            });
+        };
         this.state={
+            file:'',
             general:{
                 membersNumber: 5,
                 cardsNumber: 25,
@@ -134,8 +160,21 @@ class BoardStatComp extends React.Component {
         }
     }
 
-    handleFileChange(files){
-        console.log(files);
+    handleFileChange(selectedFiles){
+        this.fileReader.readAsText(selectedFiles[0]);
+            
+/** 
+            if(gen){
+                this.setState({
+                    general:{
+                        listsNumber: gen.listsNumber,
+                        cardsNumber: gen.cardsNumber,
+                        checklistsCompleted: gen.checklistsCompleted
+                    }
+                })
+            }
+    
+    */
     }
 
     render() {
@@ -143,7 +182,8 @@ class BoardStatComp extends React.Component {
             <div className="boardStatsPanel">
                 <div className="row">
                     <div className="col-sm-12 boardSettingsBar">
-                        <ImportDataHeader handleFileChange={this.handleFileChange} />
+                        <ImportDataHeader 
+                            handleFileChange={this.handleFileChange} />
                     </div>
                 </div>
                 <div className="boardNameRow">

@@ -1,21 +1,34 @@
 import React from 'react';
 
 const DataToGeneral = (data) => {
-    var cardsLists = data.default.lists;
+    if(data.default){
+        var cardsLists = data.default.lists;
+    }else{
+        var cardsLists = data.lists;
+    }
     var generalInfo = {};
 
     var cardsCpt = 0;
+    var cardsCompletedCpt = 0;
+    var firstCreation = '';
+    var lastCreation = '';
 
     cardsLists.forEach(function(l) {
         cardsCpt += l.cards.length;
+        l.cards.forEach(function(c) {
+            if(c.isValidated){ cardsCompletedCpt ++; }
+        })
     });
-    
- 
+
+
     generalInfo.listsNumber = cardsLists.length;
     generalInfo.cardsNumber = cardsCpt;
+    generalInfo.checklistsCompleted = cardsCompletedCpt / cardsCpt * 100;
+
 
     return generalInfo;
- 
+
+
     /*   {
         membersNumber: 5,
         cardsNumber: 25,

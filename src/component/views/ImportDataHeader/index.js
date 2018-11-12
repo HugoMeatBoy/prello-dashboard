@@ -17,7 +17,7 @@ const ImportDataHeader = props =>(
         </div>
         <div className="importFileForm">
             <p>Import your json file</p>
-            <input name="fileImported" type="file" onChange={ (e) => props.handleFileChange(e) } />
+            <input id="fileImported" type="file" onChange={ (e) => props.handleFileChange(e.target.files) } />
             
         </div>
     </div>
@@ -27,3 +27,4 @@ ImportDataHeader.propTypes = {
     handleFileChange: PropTypes.func.isRequired,
 }
 export default ImportDataHeader
+
