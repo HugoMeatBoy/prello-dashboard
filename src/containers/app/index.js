@@ -4,16 +4,11 @@ import Header from '../header';
 
 import './style.css';
 
-const board = {
-    _id:"b00000000001",
-    name:"Board 1"
-}
-
 const App = () => (
     <div className="appContainer">
     <Header />
         <main>
-            <BoardStatComp board={board}/>
+            <BoardStatComp />
         </main>
     </div>
 );

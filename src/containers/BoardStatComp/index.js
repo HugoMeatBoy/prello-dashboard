@@ -23,6 +23,7 @@ import './style.css';
 class BoardStatComp extends React.Component {
     constructor(props) {
         super(props);
+        this.handleFileChange = this.handleFileChange.bind(this);
         this.state={
             general:{
                 membersNumber: 5,
@@ -133,15 +134,20 @@ class BoardStatComp extends React.Component {
         }
     }
 
+    handleFileChange(files){
+        console.log(files);
+    }
 
     render() {
         return (
             <div className="boardStatsPanel">
                 <div className="row">
                     <div className="col-sm-12 boardSettingsBar">
-                        <ImportDataHeader />
-                        <h1 className="boardName">{this.props.board.name}</h1>
+                        <ImportDataHeader handleFileChange={this.handleFileChange} />
                     </div>
+                </div>
+                <div className="boardNameRow">
+                    <h1 className="boardName">{this.props.board ? this.props.board.name  : ''}</h1>
                 </div>
 
                 <div className="statsPanel">

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 // ===== Others
 import './style.css';
@@ -7,9 +9,21 @@ import './style.css';
 
 const ImportDataHeader = props =>(    
     <div className="importData">
-
-        <p> teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest </p>
+        <div className="dashboardTitle">
+            <div>
+                <h2>Dashboard for prello</h2>
+                <p>Designed by group 2.2</p>
+            </div>
+        </div>
+        <div className="importFileForm">
+            <p>Import your json file</p>
+            <input name="fileImported" type="file" onChange={ (e) => props.handleFileChange(e) } />
+            
+        </div>
     </div>
 )
 
+ImportDataHeader.propTypes = {
+    handleFileChange: PropTypes.func.isRequired,
+}
 export default ImportDataHeader
