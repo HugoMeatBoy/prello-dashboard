@@ -57,8 +57,30 @@
     margin-bottom: 20px;
 }
 
+.dataOverview{
+    background-color: #00546f;
+    color:  #ebebfd
+}
+
 .statsTitle {
     font-weight: bold;
     font-size: 22px;
     margin-bottom: 20px;
+}
+
+
+.statsPanel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.overviewPanel{
+    flex: 1;
+    justify-content: space-around;
+    padding: 50px 50px 50px 30px;
+}
+
+.tabsPanel{
+    flex: 3;
+    justify-content: space-between;
 }

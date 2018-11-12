@@ -6,36 +6,41 @@ import './style.css';
 // ==================================
 
 const GeneralInfoView = props =>(    
-    <div className="dataType dataValues">
+    <div className="dataType dataOverview">
 
-        <div className="row">
-            <div className="col-sm-12">
+        <div className="rows">
+            <div className="c">
                 <h1 className="statsTitle">Overview</h1>
             </div>
         </div>
 
-        <div className="row">
-            <div className="col-sm-4">
-                First card created: <b>{props.data.firstCardCreated}</b>
-            </div>
-            <div className="col-sm-4">
-                Last card created: <b>{props.data.lastCardCreated}</b>
-            </div>
-            <div className="col-sm-4">
-                Checklists completed: <b>{props.data.checklistsCompleted}%</b>
-            </div>
+
+        <div className="rowOverview">
+            <p className="rowTitle">First card created:</p>
+            <b className="rowData">{props.data.firstCardCreated}</b>
+        </div>
+        <div className="rowOverview">
+            <p className="rowTitle">Last card created: </p> 
+            <b className="rowData">{props.data.lastCardCreated}</b>  
+        </div>
+
+
+        <div className="rowOverview">
+            <p className="rowTitle">Checklists completed:  </p> 
+            <b className="rowData">{props.data.checklistsCompleted}%</b>
         </div>
         
-        <div className="row">
-            <div className="col-sm-4">
-                Number of lists in board: <b>{props.data.listsNumber}</b>
-            </div>
-            <div className="col-sm-4">
-                Number of cards in board: <b>{props.data.cardsNumber}</b>
-            </div>
-            <div className="col-sm-4">
-                Number of members in board: <b>{props.data.membersNumber}</b>
-            </div>
+        <div className="rowOverview">
+            <p className="rowTitle">Number of lists in board: </p>
+            <b className="rowData">{props.data.listsNumber}</b>
+        </div>
+        <div className="rowOverview">    
+            <p className="rowTitle"> Number of cards in board: </p>
+            <b className="rowData">{props.data.cardsNumber}</b>
+        </div>
+        <div className="rowOverview">
+            <p className="rowTitle"> Number of members in board:</p>
+            <b className="rowData">{props.data.membersNumber}</b>
         </div>
     </div>
 )

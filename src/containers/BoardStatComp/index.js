@@ -6,6 +6,7 @@ import BoardActivityView from '../../component/views/BoardActivityView';
 import DueDateView from '../../component/views/DueDateView';
 import MembersCardsView from '../../component/views/MembersCardsView';
 import BoardOrientationView from '../../component/views/BoardOrientationView';
+import ImportDataHeader from '../../component/views/ImportDataHeader';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -142,39 +143,45 @@ class BoardStatComp extends React.Component {
                     </div>
                 </div>
 
-                <GeneralInfoView data={this.state.general}/>
-
-                <Tabs>
-                    <TabList>
-                        <Tab>Cards</Tab>
-                        <Tab>Board</Tab>
-                        <Tab>Members</Tab>
-                    </TabList>
-
-                <TabPanel>
-                    <div className="row">
-                        <ListCardsView data={this.state.cardsData}/>
-                        <CardLabelView data={this.state.labelsData}/>
+                <div className="statsPanel">
+                    <div className="overviewPanel">
+                        <GeneralInfoView data={this.state.general}/>
                     </div>
-                </TabPanel>
-                
-                <TabPanel>
-                    <div className="row">
-                        <BoardActivityView data={this.state.boardActivityData}/>
-                        <DueDateView data={this.state.dueDateData}/>
-                    </div>
-                    <div className="row">
-                        <BoardOrientationView data={this.state.labelsData}/>
-                    </div>
-                </TabPanel>
+                    
 
-                <TabPanel>
-                    <div className="row">
-                        <MembersCardsView data={this.state.cardsPerMemberData}/>
-                    </div>
-                </TabPanel>
+                    <div className="tabsPanel">
+                        <Tabs>
+                            <TabList>
+                                <Tab>Cards</Tab>
+                                <Tab>Board</Tab>
+                                <Tab>Members</Tab>
+                            </TabList>
 
-                </Tabs>
+                        <TabPanel>
+                            <div className="row">
+                                <ListCardsView data={this.state.cardsData}/>
+                                <CardLabelView data={this.state.labelsData}/>
+                            </div>
+                        </TabPanel>
+
+                        <TabPanel>
+                            <div className="row">
+                                <BoardActivityView data={this.state.boardActivityData}/>
+                                <DueDateView data={this.state.dueDateData}/>
+                            </div>
+                            <div className="row">
+                                <BoardOrientationView data={this.state.labelsData}/>
+                            </div>
+                        </TabPanel>
+
+                        <TabPanel>
+                            <div className="row">
+                                <MembersCardsView data={this.state.cardsPerMemberData}/>
+                            </div>
+                        </TabPanel>
+                        </Tabs>
+                    </div>
+                </div>
             </div>
         );
     }

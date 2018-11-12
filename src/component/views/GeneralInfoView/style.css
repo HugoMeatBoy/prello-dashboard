@@ -1,0 +1,16 @@
+.rowOverview{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rowTitle{
+    font-size: 16px;
+    text-align: left;
+    color:#cbcbfd;
+}
+
+.rowData{
+    font-size: 18px;
+    text-align: right;
+   
+}
