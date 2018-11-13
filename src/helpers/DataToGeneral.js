@@ -5,8 +5,8 @@ import * as moment from 'moment';
 
 const DataToGeneral = (data) => {
     moment().format();
-    
     var cardsLists = data.lists;
+    
 
     var generalInfo = {};
 
@@ -38,7 +38,7 @@ const DataToGeneral = (data) => {
 
     generalInfo.listsNumber = cardsLists.length;
     generalInfo.cardsNumber = cardsCpt;
-    generalInfo.checklistsCompleted = cardsCompletedCpt / cardsCpt * 100;
+    generalInfo.checklistsCompleted = Math.floor(cardsCompletedCpt / cardsCpt *100);
     generalInfo.firstCardCreated = firstCreation.format("hh:mm DD/MM/YYYY");
     generalInfo.lastCardCreated = lastCreation.format("hh:mm DD/MM/YYYY");
     generalInfo.membersNumber = membersListTmp.length;

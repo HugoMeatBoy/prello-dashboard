@@ -166,7 +166,17 @@ class BoardStatComp extends React.Component {
                         ...this.state.cardsData,
                         labels: cards.labels,
                         datasets:[{
-                            data: cards.data
+                            data: cards.data,
+                            backgroundColor: [
+                                '#FF6384',
+                                '#c48b56',
+                                '#6ed589',
+                                '#50000d',
+                                '#55aaaa',
+                                '#55addd',
+                                '#55a055',
+                                '#55a05a'
+                                ]
                         }]
                     },
 
@@ -181,9 +191,10 @@ class BoardStatComp extends React.Component {
         this.fileReader.readAsText(selectedFiles[0]);
     }
 
-    render() {
-        return (
-            <div className="boardStatsPanel">
+    render() {          
+            return (this.state.file ? (
+                
+                <div className="boardStatsPanel">
                 <div className="row">
                     <div className="col-sm-12 boardSettingsBar">
                         <ImportDataHeader 
@@ -234,6 +245,17 @@ class BoardStatComp extends React.Component {
                     </div>
                 </div>
             </div>
+            ) : (
+                <div className="boardStatsPanel">       
+                    <div className="row">
+                        <div className="col-sm-12 boardSettingsBar">
+                            <ImportDataHeader 
+                                handleFileChange={this.handleFileChange} />
+                        </div>
+                    </div>
+                </div>
+            )
+            
         );
     }
 }

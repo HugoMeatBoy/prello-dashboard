@@ -31,6 +31,14 @@ const ListCardsView = props =>(
                     legend: {
                         display:false
                     },
+                    scales: {
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
                 }}
             />
         </div>

@@ -6,8 +6,8 @@ const DataToCardsChart = (data) => {
     var cardsLists = data.lists;
 
     var cardChartsData = {};
-    var labelsList = new Array();
-    var resultList = new Array();
+    var labelsList = [];
+    var resultList = [];
     
     cardsLists.forEach(function(l) {
         var cptCards = 0;
@@ -19,9 +19,6 @@ const DataToCardsChart = (data) => {
         labelsList.push(l.name);
         resultList.push(cptCards);
     })
-
-    console.log(labelsList);
-    console.log(resultList);
 
     cardChartsData.labels = labelsList;
     cardChartsData.data = resultList;
