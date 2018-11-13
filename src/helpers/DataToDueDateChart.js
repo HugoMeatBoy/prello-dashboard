@@ -31,7 +31,7 @@ const DataToDueDateChart = (data) => {
         "occ":0,
     }]
     
-    
+
     dueDateOccurence.forEach(function(date){
         labelsList.push(date.label)
     })
@@ -43,9 +43,41 @@ const DataToDueDateChart = (data) => {
                 if(moment(c.dueDate).diff(moment(), 'days')<0){
                     dueDateOccurence.forEach(function(date){
                         if(date.label === "Overdue"){
-                            console.log("Overdue !")
-                            console.log(c.dueDate)
-                            console.log(moment(c.dueDate))
+                            date.occ+=1
+                        }
+                    })
+                }
+                else if(moment(c.dueDate).diff(moment(), 'days')<1){
+                    dueDateOccurence.forEach(function(date){
+                        if(date.label === "Due today"){
+                            date.occ+=1
+                        }
+                    })
+                }
+                else if(moment(c.dueDate).diff(moment(), 'days')<2){
+                    dueDateOccurence.forEach(function(date){
+                        if(date.label === "Due tomorrow"){
+                            date.occ+=1
+                        }
+                    })
+                }
+                else if(moment(c.dueDate).diff(moment(), 'weeks')<1){
+                    dueDateOccurence.forEach(function(date){
+                        if(date.label === "Later this week"){
+                            date.occ+=1
+                        }
+                    })
+                }
+                else if(moment(c.dueDate).diff(moment(), 'months')<1){
+                    dueDateOccurence.forEach(function(date){
+                        if(date.label === "Later this month"){
+                            date.occ+=1
+                        }
+                    })
+                }
+                else {
+                    dueDateOccurence.forEach(function(date){
+                        if(date.label === "More than 1 month"){
                             date.occ+=1
                         }
                     })
