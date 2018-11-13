@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -9,23 +9,22 @@ import './style.css';
 // ==================================
 
 const ImportDataHeader = props =>(    
-    <div className="importData">
+    <Fragment>
         <div className="dashboardTitle">
             <div>
-                <h2>Dashboard for prello</h2>
+                <h1>Dashboard for prello</h1>
                 <p>Designed by group 2.2</p>
+                <hr />
             </div>
         </div>
         <div className="importFileForm">
-            <p>Import your json file</p>
-            <input id="fileImported" type="file" onChange={ (e) => props.handleFileChange(e.target.files) } />
-            
+            <p className="importText">Import your json file</p>
+            <input id="fileImported" type="file" className="browseFileBtn" onChange={ (e) => props.handleFileChange(e.target.files) } /> 
         </div>
-    </div>
+    </Fragment>
 )
 
 ImportDataHeader.propTypes = {
     handleFileChange: PropTypes.func.isRequired,
 }
 export default ImportDataHeader
-

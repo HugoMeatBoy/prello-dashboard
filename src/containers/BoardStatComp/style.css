@@ -84,3 +84,9 @@
     flex: 3;
     justify-content: space-between;
 }
+
+.boardSettingsBar{
+    display: flex;
+    background-color: #eeeeee;
+}
+

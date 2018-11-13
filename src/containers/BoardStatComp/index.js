@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ListCardsView from '../../component/views/ListCardsView';
 import CardLabelView from '../../component/views/CardLabelView';
 import GeneralInfoView from '../../component/views/GeneralInfoView';
@@ -7,6 +7,7 @@ import DueDateView from '../../component/views/DueDateView';
 import MembersCardsView from '../../component/views/MembersCardsView';
 import BoardOrientationView from '../../component/views/BoardOrientationView';
 import ImportDataHeader from '../../component/views/ImportDataHeader';
+import HomeView from '../../component/views/HomeView';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -15,7 +16,9 @@ import 'react-tabs/style/react-tabs.css';
 
 // ===== Helpers
 import DataToGeneral from '../../helpers/DataToGeneral';
-import DataToCardsChart from '../../helpers/DataToChart';
+import DataToCardsListChart from '../../helpers/DataToCardsListChart';
+import DataToCardsLabelChart from '../../helpers/DataToCardsLabelChart';
+
 import DataToBoardChart from '../../helpers/DataToBoardChart';
 // ===== Components / Containers
 
@@ -145,8 +148,11 @@ class BoardStatComp extends React.Component {
         this.fileReader.onload = (event) => {
 
             var gen = DataToGeneral(JSON.parse(event.target.result));
-            var cards = DataToCardsChart(JSON.parse(event.target.result));
+            var cardsList = DataToCardsListChart(JSON.parse(event.target.result));
+            var cardsLabel = DataToCardsLabelChart(JSON.parse(event.target.result));
             var board = DataToBoardChart(JSON.parse(event.target.result));
+            
+            console.log(cardsLabel);
 
             if(gen){
                 this.setState({
@@ -162,14 +168,14 @@ class BoardStatComp extends React.Component {
 
                 })
             }
-            if(cards){
+            if(cardsList){
                 this.setState({
                     ...this.state,
                     cardsData:{
                         ...this.state.cardsData,
-                        labels: cards.labels,
+                        labels: cardsList.labels,
                         datasets:[{
-                            data: cards.data,
+                            data: cardsList.data,
                             backgroundColor: [
                                 '#FF2284',
                                 '#c48b56',
@@ -214,12 +220,12 @@ class BoardStatComp extends React.Component {
             return (this.state.file ? (
                 
                 <div className="boardStatsPanel">
-                <div className="row">
-                    <div className="col-sm-12 boardSettingsBar">
-                        <ImportDataHeader 
-                            handleFileChange={this.handleFileChange} />
+                    <div className="row">
+                        <div className="col-sm-12 boardSettingsBar">
+                            <ImportDataHeader 
+                                handleFileChange={this.handleFileChange} />
+                        </div>
                     </div>
-                </div>
                 <div className="boardNameRow">
                     <h1 className="boardName">{this.props.board ? this.props.board.name  : ''}</h1>
                 </div>
@@ -265,14 +271,9 @@ class BoardStatComp extends React.Component {
                 </div>
             </div>
             ) : (
-                <div className="boardStatsPanel">       
-                    <div className="row">
-                        <div className="col-sm-12 boardSettingsBar">
-                            <ImportDataHeader 
-                                handleFileChange={this.handleFileChange} />
-                        </div>
-                    </div>
-                </div>
+         
+                <HomeView handleFileChange={this.handleFileChange} />
+                
             )
             
         );
