@@ -52,12 +52,12 @@ class BoardStatComp extends React.Component {
         this.state={
             file:'',
             general:{
-                membersNumber: 5,
-                cardsNumber: 25,
-                listsNumber: 7,
-                firstCardCreated: "2018-10-01 - 16:49:25",
-                lastCardCreated: "2018-12-07 - 14:09:42",
-                checklistsCompleted: "64"
+                membersNumber: '',
+                cardsNumber: '',
+                listsNumber: '',
+                firstCardCreated: "",
+                lastCardCreated: "",
+                checklistsCompleted: ""
             },
             cardsData : {
                 labels: [
