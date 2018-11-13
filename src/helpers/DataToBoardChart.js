@@ -1,6 +1,7 @@
 import React from 'react';
 import * as moment from 'moment';
 
+// ===== BOARD ACTIVITY =====
 const DataToBoardChart = (data) => {
     
     var cardsLists = data.lists;

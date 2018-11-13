@@ -20,6 +20,8 @@ import DataToCardsListChart from '../../helpers/DataToCardsListChart';
 import DataToCardsLabelChart from '../../helpers/DataToCardsLabelChart';
 
 import DataToBoardChart from '../../helpers/DataToBoardChart';
+import DataToCardLabelsChart from "../../helpers/DataToCardLabelsChart";
+
 // ===== Components / Containers
 
 // ===== Actions
@@ -151,8 +153,8 @@ class BoardStatComp extends React.Component {
             var cardsList = DataToCardsListChart(JSON.parse(event.target.result));
             var cardsLabel = DataToCardsLabelChart(JSON.parse(event.target.result));
             var board = DataToBoardChart(JSON.parse(event.target.result));
-            
-            console.log(cardsLabel);
+            var cardLabels = DataToCardLabelsChart(JSON.parse(event.target.result));
+
 
             if(gen){
                 this.setState({
@@ -202,6 +204,20 @@ class BoardStatComp extends React.Component {
                             backgroundColor: '#36a2eb',
                             borderColor: '#36a2eb',
                             fill: false,
+                        }]
+                    },
+                })
+            }
+            if(cardLabels){
+                this.setState({
+                    ...this.state,
+                    labelsData:{
+                        ...this.state.labelsData,
+                        labels: cardLabels.labels,
+                        datasets:[{
+                            label: "Cards per label",
+                            data: cardLabels.data,
+                            backgroundColor: cardLabels.cols,
                         }]
                     },
                 })

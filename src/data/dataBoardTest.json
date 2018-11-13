@@ -1,6 +1,7 @@
 {
     "boardName":"Board name",
     "membersList":["Clément","Cyprien","Hugo","Kévin"],
+    "labels":["Front-end","Document","Back-end","Database","UX","Urgent","Conception"],
     "lists":[{
         "name":"list one",
         "cards":[{
@@ -8,7 +9,7 @@
             "isValidated":true,
             "dueDate":"2018-08-28T18:25:43.511Z",
             "creationDate":"2018-06-02T15:21:45.441Z",
-            "labels":["front-end","Document"],
+            "labels":["Front-end","Document"],
             "members":["Hugo"]
         }]
     },{
@@ -18,70 +19,70 @@
             "isValidated":false,
             "dueDate":"2018-07-23T21:58:40.011Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["back-end","database"],
+            "labels":["Back-end","Database"],
             "members":["Clément", "Hugo"]
         },{
             "name":"card one",
             "isValidated":false,
             "dueDate":"2018-07-23T21:58:40.011Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["back-end","database"],
+            "labels":["Back-end","Database"],
             "members":["Clément", "Hugo"]
         },{
             "name":"card one",
             "isValidated":false,
             "dueDate":"2018-07-23T21:58:40.011Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["back-end","database"],
+            "labels":["Back-end","Database"],
             "members":["Clément", "Hugo"]
         },{
             "name":"card one",
             "isValidated":false,
             "dueDate":"2018-07-23T21:58:40.011Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["back-end","database"],
+            "labels":["Back-end","Database"],
             "members":["Clément", "Hugo"]
         },{
             "name":"card if",
             "isValidated":false,
             "dueDate":"2018-02-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["front-end","UX","back-end","database"],
+            "labels":["Front-end","UX","Back-end","Database"],
             "members":["Cyprien", "Hugo"]
         },{
             "name":"cardss",
             "isValidated":true,
             "dueDate":"2018-07-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["front-end","UX"],
+            "labels":["Front-end","UX"],
             "members":["Cyprien", "Hugo", "Clément", "Kévin"]
         },{
             "name":"card ashian",
             "isValidated":false,
             "dueDate":"2018-07-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["front-end","UX"],
+            "labels":["Front-end","UX"],
             "members":["Clément"]
         },{
             "name":"card ons (en gratin)",
             "isValidated":true,
             "dueDate":"2018-05-23T18:25:43.511Z",
             "creationDate":"2018-04-25T18:25:43.511Z",
-            "labels":["front-end","UX"],
+            "labels":["Front-end","UX"],
             "members":["Kévin"]
         },{
             "name":"card ting",
             "isValidated":true,
             "dueDate":"2018-09-23T18:25:43.511Z",
             "creationDate":"2018-04-25T18:25:43.511Z",
-            "labels":["front-end","UX"],
+            "labels":["Front-end","UX"],
             "members":["Hugo", "Cyprien"]
         },{
             "name":"I card",
             "isValidated":false,
             "dueDate":"2018-08-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["front-end","UX"],
+            "labels":["Front-end","UX"],
             "members":["Clément"]
         }]
     },{
@@ -91,49 +92,49 @@
             "isValidated":true,
             "dueDate":"2018-08-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["front-end","UX"],
+            "labels":["Front-end","UX"],
             "members":["Clément"]
         },{
             "name":"car ton",
             "isValidated":false,
             "dueDate":"2018-08-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["back-end","database"],
+            "labels":["Back-end","Database"],
             "members":["Clément", "Hugo"]
         },{
             "name":"car iole",
             "isValidated":true,
             "dueDate":"2018-08-21T18:25:43.511Z",
             "creationDate":"2018-07-10T18:25:43.511Z",
-            "labels":["document","UX"],
+            "labels":["Document","UX"],
             "members":["Cyprien", "Hugo", "Clément", "Kévin"]
         },{
             "name":"cacard",
             "isValidated":false,
             "dueDate":"2018-08-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["front-end"],
+            "labels":["Front-end"],
             "members":["Clément", "Kévin", "Hugo"]
         },{
             "name":"car illon",
             "isValidated":true,
             "dueDate":"2018-08-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["front-end","UX"],
+            "labels":["Front-end","UX"],
             "members":["Kévin", "Hugo"]
         },{
             "name":"car nassier",
             "isValidated":false,
             "dueDate":"2018-08-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["document"],
+            "labels":["Document"],
             "members":["Cyprien"]
         },{
             "name":"car nassier",
             "isValidated":false,
             "dueDate":"2018-08-23T18:25:43.511Z",
             "creationDate":"2018-06-25T18:25:43.511Z",
-            "labels":["document"],
+            "labels":["Document"],
             "members":["Cyprien"]
         }]
     }]  
