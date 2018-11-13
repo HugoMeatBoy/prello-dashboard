@@ -10,6 +10,7 @@ import ImportDataHeader from '../../component/views/ImportDataHeader';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+
 // ===== Models
 
 // ===== Helpers
@@ -21,13 +22,11 @@ import DataToGeneral from '../../helpers/DataToGeneral';
 
 // ===== Others
 import './style.css';
-import * as dataJson from '../../data/dataBoardTest';
 
 
 class BoardStatComp extends React.Component {
     constructor(props) {
         super(props);
-
 
         this.handleFileChange = this.handleFileChange.bind(this);
         this.fileReader = new FileReader();
@@ -40,14 +39,15 @@ class BoardStatComp extends React.Component {
                     general:{
                         listsNumber: gen.listsNumber,
                         cardsNumber: gen.cardsNumber,
-                        checklistsCompleted: gen.checklistsCompleted
+                        membersNumber: gen.membersNumber,
+                        checklistsCompleted: gen.checklistsCompleted,
+                        lastCardCreated: gen.lastCardCreated,
+                        firstCardCreated: gen.firstCardCreated
                     }
                 })
             }
         
-            this.setState({ file: JSON.parse(event.target.result) }, () => {
-                console.log(this.state.file);
-            });
+            this.setState({ file: JSON.parse(event.target.result) });
         };
         this.state={
             file:'',
@@ -162,19 +162,6 @@ class BoardStatComp extends React.Component {
 
     handleFileChange(selectedFiles){
         this.fileReader.readAsText(selectedFiles[0]);
-            
-/** 
-            if(gen){
-                this.setState({
-                    general:{
-                        listsNumber: gen.listsNumber,
-                        cardsNumber: gen.cardsNumber,
-                        checklistsCompleted: gen.checklistsCompleted
-                    }
-                })
-            }
-    
-    */
     }
 
     render() {
