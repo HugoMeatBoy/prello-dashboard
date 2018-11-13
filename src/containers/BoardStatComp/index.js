@@ -168,7 +168,7 @@ class BoardStatComp extends React.Component {
                         datasets:[{
                             data: cards.data,
                             backgroundColor: [
-                                '#FF6384',
+                                '#FF2284',
                                 '#c48b56',
                                 '#6ed589',
                                 '#50000d',
