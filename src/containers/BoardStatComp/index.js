@@ -16,6 +16,7 @@ import 'react-tabs/style/react-tabs.css';
 // ===== Helpers
 import DataToGeneral from '../../helpers/DataToGeneral';
 import DataToCardsChart from '../../helpers/DataToChart';
+import DataToBoardChart from '../../helpers/DataToBoardChart';
 // ===== Components / Containers
 
 // ===== Actions
@@ -63,7 +64,7 @@ class BoardStatComp extends React.Component {
                     'Document',
                     'Conception',
                 ],
-                datasets: [{                   
+                datasets: [{
                     data: [8, 10, 9, 4,5,8],
                     backgroundColor: [
                     '#FF6384',
@@ -145,6 +146,8 @@ class BoardStatComp extends React.Component {
 
             var gen = DataToGeneral(JSON.parse(event.target.result));
             var cards = DataToCardsChart(JSON.parse(event.target.result));
+            var board = DataToBoardChart(JSON.parse(event.target.result));
+
             if(gen){
                 this.setState({
                     ...this.state,
@@ -179,9 +182,25 @@ class BoardStatComp extends React.Component {
                                 ]
                         }]
                     },
-
                 })
             }
+            if(board){
+                this.setState({
+                    ...this.state,
+                    boardActivityData:{
+                        ...this.state.boardActivityData,
+                        labels: board.labels,
+                        datasets:[{
+                            label: "Created cards",
+                            data: board.dates,
+                            backgroundColor: '#36a2eb',
+                            borderColor: '#36a2eb',
+                            fill: false,
+                        }]
+                    },
+                })
+            }
+
         
             this.setState({ file: JSON.parse(event.target.result) });
         };
