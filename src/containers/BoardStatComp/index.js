@@ -20,6 +20,7 @@ import DataToCardsListChart from '../../helpers/DataToCardsListChart';
 import DataToBoardChart from '../../helpers/DataToBoardChart';
 import DataToCardLabelsChart from "../../helpers/DataToCardLabelsChart";
 import DataToDueDateChart from "../../helpers/DataToDueDateChart";
+import DataToMembersChart from "../../helpers/DataToMembersChart";
 
 // ===== Components / Containers
 
@@ -153,6 +154,7 @@ class BoardStatComp extends React.Component {
             var board = DataToBoardChart(JSON.parse(event.target.result));
             var cardLabels = DataToCardLabelsChart(JSON.parse(event.target.result));
             var dueDates = DataToDueDateChart(JSON.parse(event.target.result));
+            var members = DataToMembersChart(JSON.parse(event.target.result));
 
 
             if(gen){
@@ -233,6 +235,24 @@ class BoardStatComp extends React.Component {
                             label: "Due dates",
                             data: dueDates.data,
                             backgroundColor: dueDates.cols
+                        }]
+                    }
+                })
+            }
+            if(members){
+                this.setState({
+                    ...this.state,
+                    cardsPerMemberData:{
+                        ...this.state.cardsPerMemberData,
+                        labels: members.labels,
+                        datasets:[{
+                            label: "Overdue",
+                            data: members.dataOverdue,
+                            backgroundColor: members.overdueCols,
+                        },{
+                            label: "Due later",
+                            data: members.dataInTime,
+                            backgroundColor: members.inTimeCols,
                         }]
                     }
                 })
