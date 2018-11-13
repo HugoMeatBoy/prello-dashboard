@@ -13,10 +13,7 @@ const DataToGeneral = (data) => {
     var cardsCpt = 0;
     var cardsCompletedCpt = 0;
     var firstCreation = undefined;
-    var lastCreation = undefined;
-
-    var membersListTmp = [];
-    
+    var lastCreation = undefined; 
 
     cardsLists.forEach(function(l) {
         cardsCpt += l.cards.length;
@@ -29,19 +26,15 @@ const DataToGeneral = (data) => {
             else if(cardDate.isBefore(firstCreation)){ firstCreation = cardDate }
             else if(cardDate.isAfter(lastCreation)){ lastCreation = cardDate }
 
-            c.members.forEach(function(m){
-                membersListTmp += m
-            });
         })
     });
-
 
     generalInfo.listsNumber = cardsLists.length;
     generalInfo.cardsNumber = cardsCpt;
     generalInfo.checklistsCompleted = Math.floor(cardsCompletedCpt / cardsCpt *100);
     generalInfo.firstCardCreated = firstCreation.format("hh:mm DD/MM/YYYY");
     generalInfo.lastCardCreated = lastCreation.format("hh:mm DD/MM/YYYY");
-    generalInfo.membersNumber = membersListTmp.length;
+    generalInfo.membersNumber = data.membersList.length;
 
     return generalInfo;
 };

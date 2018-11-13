@@ -1,5 +1,6 @@
 {
     "boardName":"Board name",
+    "membersList":["Clément","Cyprien","Hugo","Kévin"],
     "lists":[{
         "name":"list one",
         "cards":[{
