@@ -17,8 +17,6 @@ import 'react-tabs/style/react-tabs.css';
 // ===== Helpers
 import DataToGeneral from '../../helpers/DataToGeneral';
 import DataToCardsListChart from '../../helpers/DataToCardsListChart';
-import DataToCardsLabelChart from '../../helpers/DataToCardsLabelChart';
-
 import DataToBoardChart from '../../helpers/DataToBoardChart';
 import DataToCardLabelsChart from "../../helpers/DataToCardLabelsChart";
 
@@ -151,7 +149,6 @@ class BoardStatComp extends React.Component {
 
             var gen = DataToGeneral(JSON.parse(event.target.result));
             var cardsList = DataToCardsListChart(JSON.parse(event.target.result));
-            var cardsLabel = DataToCardsLabelChart(JSON.parse(event.target.result));
             var board = DataToBoardChart(JSON.parse(event.target.result));
             var cardLabels = DataToCardLabelsChart(JSON.parse(event.target.result));
 
@@ -218,6 +215,8 @@ class BoardStatComp extends React.Component {
                             label: "Cards per label",
                             data: cardLabels.data,
                             backgroundColor: cardLabels.cols,
+                            borderColor: '#000000',
+                            fill: false,
                         }]
                     },
                 })
