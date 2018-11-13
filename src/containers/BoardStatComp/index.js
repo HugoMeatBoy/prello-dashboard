@@ -15,7 +15,7 @@ import 'react-tabs/style/react-tabs.css';
 
 // ===== Helpers
 import DataToGeneral from '../../helpers/DataToGeneral';
-
+import DataToCardsChart from '../../helpers/DataToChart';
 // ===== Components / Containers
 
 // ===== Actions
@@ -28,27 +28,6 @@ class BoardStatComp extends React.Component {
     constructor(props) {
         super(props);
 
-        this.handleFileChange = this.handleFileChange.bind(this);
-        this.fileReader = new FileReader();
-
-        this.fileReader.onload = (event) => {
-
-            var gen = DataToGeneral(JSON.parse(event.target.result));
-            if(gen){
-                this.setState({
-                    general:{
-                        listsNumber: gen.listsNumber,
-                        cardsNumber: gen.cardsNumber,
-                        membersNumber: gen.membersNumber,
-                        checklistsCompleted: gen.checklistsCompleted,
-                        lastCardCreated: gen.lastCardCreated,
-                        firstCardCreated: gen.firstCardCreated
-                    }
-                })
-            }
-        
-            this.setState({ file: JSON.parse(event.target.result) });
-        };
         this.state={
             file:'',
             general:{
@@ -60,18 +39,17 @@ class BoardStatComp extends React.Component {
                 checklistsCompleted: ""
             },
             cardsData : {
-                labels: [
-                    'To do',
-                    'In process',
-                    'Testing',
-                    'Done',
-                ],
+                labels: [],
                 datasets: [{
-                    data: [4, 45, 48, 29],
+                    data: [],
                     backgroundColor: [
                     '#FF6384',
                     '#c48b56',
-                    '#6ea0c9',
+                    '#6ed589',
+                    '#50000d',
+                    '#55aaaa',
+                    '#55addd',
+                    '#55a055',
                     '#55a05a'
                     ]
                 }]
@@ -158,6 +136,45 @@ class BoardStatComp extends React.Component {
                 }]
             }
         }
+
+
+        this.handleFileChange = this.handleFileChange.bind(this);
+        this.fileReader = new FileReader();
+
+        this.fileReader.onload = (event) => {
+
+            var gen = DataToGeneral(JSON.parse(event.target.result));
+            var cards = DataToCardsChart(JSON.parse(event.target.result));
+            if(gen){
+                this.setState({
+                    ...this.state,
+                    general:{
+                        listsNumber: gen.listsNumber,
+                        cardsNumber: gen.cardsNumber,
+                        membersNumber: gen.membersNumber,
+                        checklistsCompleted: gen.checklistsCompleted,
+                        lastCardCreated: gen.lastCardCreated,
+                        firstCardCreated: gen.firstCardCreated
+                    },
+
+                })
+            }
+            if(cards){
+                this.setState({
+                    ...this.state,
+                    cardsData:{
+                        ...this.state.cardsData,
+                        labels: cards.labels,
+                        datasets:[{
+                            data: cards.data
+                        }]
+                    },
+
+                })
+            }
+        
+            this.setState({ file: JSON.parse(event.target.result) });
+        };
     }
 
     handleFileChange(selectedFiles){

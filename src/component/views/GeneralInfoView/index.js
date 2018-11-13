@@ -26,7 +26,7 @@ const GeneralInfoView = props =>(
 
 
         <div className="rowOverview">
-            <p className="rowTitle">Checklists completed:  </p> 
+            <p className="rowTitle">Cards completed:  </p> 
             <b className="rowData">{props.data.checklistsCompleted}%</b>
         </div>
         

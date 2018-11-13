@@ -5,12 +5,8 @@ import * as moment from 'moment';
 
 const DataToGeneral = (data) => {
     moment().format();
-
-    if(data.default){
-        var cardsLists = data.default.lists;
-    }else{
-        var cardsLists = data.lists;
-    }
+    
+    var cardsLists = data.lists;
 
     var generalInfo = {};
 
@@ -48,16 +44,6 @@ const DataToGeneral = (data) => {
     generalInfo.membersNumber = membersListTmp.length;
 
     return generalInfo;
-
-
-    /*   {
-        membersNumber: 5,
-        cardsNumber: 25,
-        listsNumber: 7,
-        firstCardCreated: "2018-10-01 - 16:49:25",
-        lastCardCreated: "2018-12-07 - 14:09:42",
-        checklistsCompleted: "64"
-    }, */
 };
 
 export default DataToGeneral;
