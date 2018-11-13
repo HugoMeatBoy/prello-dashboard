@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ListCardsView from '../../component/views/ListCardsView';
 import CardLabelView from '../../component/views/CardLabelView';
 import GeneralInfoView from '../../component/views/GeneralInfoView';
