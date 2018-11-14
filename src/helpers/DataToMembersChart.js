@@ -10,14 +10,20 @@ const DataToMembersChart = (data) => {
     var membersOccurence = [];
     var overdueOccurence = [];
 
+    var labelsList = [];
+
+    membersList.forEach(function(memb){
+        labelsList.push(memb.fullName);
+    })
+
     // create a list of object {Label: occurence}
     membersList.forEach(function(memb){
-        membersOccurence.push({"_id":memb._id,"member":memb.username, "occ":0})
+        membersOccurence.push({"_id":memb._id,"member":memb.fullName, "occ":0})
     })
 
 
     membersList.forEach(function(memb){
-        overdueOccurence.push({"_id":memb._id,"member":memb.username, "occ":0})
+        overdueOccurence.push({"_id":memb._id,"member":memb.fullName, "occ":0})
     })
     
     lists.forEach(function(l) {
@@ -25,7 +31,9 @@ const DataToMembersChart = (data) => {
             if(c.members.length>0){
                 if(c.dueDate.length>0 && moment(c.dueDate).diff(moment(), 'days')<0){
                     c.members.forEach(function(cardMember){
+                        console.log(cardMember)
                         overdueOccurence.forEach(function(memb){
+                            console.log(memb._id)
                             if(memb._id === cardMember){
                                 memb.occ+=1
                             }
@@ -71,7 +79,7 @@ const DataToMembersChart = (data) => {
         inTimeColors.push('#55a05a');
     }
 
-    cardChartsData.labels = membersList;
+    cardChartsData.labels = labelsList;
     cardChartsData.dataInTime = inTimeResultsList;
     cardChartsData.dataOverdue = overdueResultsList;
     cardChartsData.overdueCols = overdueColors;
