@@ -17,7 +17,7 @@ import 'react-tabs/style/react-tabs.css';
 // ===== Helpers
 import DataToGeneral from '../../helpers/DataToGeneral';
 import DataToCardsListChart from '../../helpers/DataToCardsListChart';
-import DataToBoardChart from '../../helpers/DataToBoardChart';
+import DataToBoardActivityChart from '../../helpers/DataToBoardActivityChart';
 import DataToCardLabelsChart from "../../helpers/DataToCardLabelsChart";
 import DataToDueDateChart from "../../helpers/DataToDueDateChart";
 import DataToMembersChart from "../../helpers/DataToMembersChart";
@@ -151,7 +151,7 @@ class BoardStatComp extends React.Component {
 
             var gen = DataToGeneral(JSON.parse(event.target.result));
             var cardsList = DataToCardsListChart(JSON.parse(event.target.result));
-            var board = DataToBoardChart(JSON.parse(event.target.result));
+            var board = DataToBoardActivityChart(JSON.parse(event.target.result));
             var cardLabels = DataToCardLabelsChart(JSON.parse(event.target.result));
             var dueDates = DataToDueDateChart(JSON.parse(event.target.result));
             var members = DataToMembersChart(JSON.parse(event.target.result));

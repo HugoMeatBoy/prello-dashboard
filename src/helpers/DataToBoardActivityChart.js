@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 
 // ===== BOARD ACTIVITY =====
-const DataToBoardChart = (data) => {
+const DataToBoardActivityChart = (data) => {
     
     var cardsLists = data.lists;
 
@@ -74,4 +74,4 @@ const DataToBoardChart = (data) => {
     return boardChartsData;
 };
 
-export default DataToBoardChart;
+export default DataToBoardActivityChart;
