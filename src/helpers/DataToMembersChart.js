@@ -3,21 +3,21 @@ import * as moment from 'moment';
 
 const DataToMembersChart = (data) => {
     
-    var lists = data.lists;
+    var lists = data.board.lists;
 
     var cardChartsData = {};
-    var membersList = data.membersList;
+    var membersList = data.board.members;
     var membersOccurence = [];
     var overdueOccurence = [];
 
     // create a list of object {Label: occurence}
     membersList.forEach(function(memb){
-        membersOccurence.push({"member":memb, "occ":0})
+        membersOccurence.push({"_id":memb._id,"member":memb.username, "occ":0})
     })
 
 
     membersList.forEach(function(memb){
-        overdueOccurence.push({"member":memb, "occ":0})
+        overdueOccurence.push({"_id":memb._id,"member":memb.username, "occ":0})
     })
     
     lists.forEach(function(l) {
@@ -26,7 +26,7 @@ const DataToMembersChart = (data) => {
                 if(c.dueDate.length>0 && moment(c.dueDate).diff(moment(), 'days')<0){
                     c.members.forEach(function(cardMember){
                         overdueOccurence.forEach(function(memb){
-                            if(memb.member === cardMember){
+                            if(memb._id === cardMember){
                                 memb.occ+=1
                             }
                         })
@@ -35,7 +35,7 @@ const DataToMembersChart = (data) => {
                 else {
                     c.members.forEach(function(cardMember){
                         membersOccurence.forEach(function(memb){
-                            if(memb.member === cardMember){
+                            if(memb._id === cardMember){
                                 memb.occ+=1
                             }
                         })

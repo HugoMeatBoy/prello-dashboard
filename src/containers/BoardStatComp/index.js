@@ -153,6 +153,7 @@ class BoardStatComp extends React.Component {
             var cardsList = DataToCardsListChart(JSON.parse(event.target.result));
             var board = DataToBoardActivityChart(JSON.parse(event.target.result));
             var cardLabels = DataToCardLabelsChart(JSON.parse(event.target.result));
+            
             var dueDates = DataToDueDateChart(JSON.parse(event.target.result));
             var members = DataToMembersChart(JSON.parse(event.target.result));
 

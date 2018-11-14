@@ -3,7 +3,7 @@ import * as moment from 'moment';
 // ===== BOARD ACTIVITY =====
 const DataToBoardActivityChart = (data) => {
     
-    var cardsLists = data.lists;
+    var cardsLists = data.board.lists;
 
     var boardChartsData = {};
     var cptJan = 0;
@@ -22,7 +22,7 @@ const DataToBoardActivityChart = (data) => {
     
     cardsLists.forEach(function(l) {
         l.cards.forEach(function(c) {
-            let cardDate = moment(c.creationDate).format("MM");
+            let cardDate = moment(c.createdAt).format("MM");
             switch(cardDate){
                 case '01':
                     cptJan+=1;

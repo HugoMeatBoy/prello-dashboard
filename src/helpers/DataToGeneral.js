@@ -3,8 +3,7 @@ import * as moment from 'moment';
 
 // ===== GENERAL OVERVIEW
 const DataToGeneral = (data) => {
-    moment().format();
-    var cardsLists = data.lists;
+    var cardsLists = data.board.lists;
     
 
     var generalInfo = {};
@@ -17,9 +16,9 @@ const DataToGeneral = (data) => {
     cardsLists.forEach(function(l) {
         cardsCpt += l.cards.length;
         l.cards.forEach(function(c) {
-            if(c.isValidated){ cardsCompletedCpt ++; }
+            if(c.isArchived){ cardsCompletedCpt ++; }
 
-            let cardDate = moment(c.creationDate);
+            let cardDate = moment(c.createdAt);
             if(firstCreation === undefined){ firstCreation = cardDate }
             else if(lastCreation === undefined){ lastCreation = cardDate  }
             else if(cardDate.isBefore(firstCreation)){ firstCreation = cardDate }
@@ -33,7 +32,7 @@ const DataToGeneral = (data) => {
     generalInfo.checklistsCompleted = Math.floor(cardsCompletedCpt / cardsCpt *100);
     generalInfo.firstCardCreated = firstCreation.format("hh:mm DD/MM/YYYY");
     generalInfo.lastCardCreated = lastCreation.format("hh:mm DD/MM/YYYY");
-    generalInfo.membersNumber = data.membersList.length;
+    generalInfo.membersNumber = data.board.members.length;
 
     return generalInfo;
 };

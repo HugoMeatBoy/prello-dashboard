@@ -1,14 +1,14 @@
 const DataToCardLabelsChart = (data) => {
     
-    var lists = data.lists;
+    var lists = data.board.lists;
 
     var cardChartsData = {};
-    var labelsList = data.labels;
+    var labelsList = data.board.labels;
     var labelsOccurence = [];
 
     // create a list of object {Label: occurence}
     labelsList.forEach(function(lab){
-        labelsOccurence.push({"label":lab, "occ":0})
+        labelsOccurence.push({"label":lab.name, "occ":0})
     })
 
     var resultList = [];
@@ -18,7 +18,7 @@ const DataToCardLabelsChart = (data) => {
             if(c.labels.length>0){
                 c.labels.forEach(function(cardLab){
                     labelsOccurence.forEach(function(lab){
-                        if(lab.label === cardLab){
+                        if(lab.label === cardLab.name){
                             lab.occ += 1
                         }
                     })
@@ -47,7 +47,7 @@ const DataToCardLabelsChart = (data) => {
         colors.push(dynamicColors());
      }
 
-    cardChartsData.labels = labelsList;
+    cardChartsData.labels = labelsOccurence;
     cardChartsData.data = resultList;
     cardChartsData.cols = colors;
 

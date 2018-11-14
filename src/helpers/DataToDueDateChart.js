@@ -3,7 +3,7 @@ import * as moment from 'moment';
 
 const DataToDueDateChart = (data) => {
     
-    var lists = data.lists;
+    var lists = data.board.lists;
 
     var cardChartsData = {};  
     var labelsList = [];  

@@ -2,13 +2,13 @@
 
 const DataToCardsListChart = (data) => {
     
-    var cardsLists = data.lists;
+    var lists = data.board.lists;
 
     var cardChartsData = {};
     var listNameList = [];
     var resultList = [];
     
-    cardsLists.forEach(function(l) {
+    lists.forEach(function(l) {
         var cptCards = 0;
 
         l.cards.forEach(function(c) {
