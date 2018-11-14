@@ -17,6 +17,8 @@ const DataToMembersChart = (data) => {
     }
     else membersList = data.data.members
 
+    console.log(membersList)
+
     var cardChartsData = {};
     var membersOccurence = [];
     var overdueOccurence = [];
@@ -24,17 +26,26 @@ const DataToMembersChart = (data) => {
     var labelsList = [];
 
     membersList.forEach(function(memb){
-        labelsList.push(memb.fullName);
+        if(data.data){
+            labelsList.push(memb.member.fullName);
+        }
+        else labelsList.push(memb.fullName)
     })
 
     // create a list of object {Label: occurence}
     membersList.forEach(function(memb){
-        membersOccurence.push({"_id":memb._id,"member":memb.fullName, "occ":0})
+        if(data.data){
+            membersOccurence.push({"_id":memb.member._id,"member":memb.member.fullName, "occ":0})
+        }
+        else membersOccurence.push({"_id":memb._id,"member":memb.fullName, "occ":0})
     })
 
 
     membersList.forEach(function(memb){
-        overdueOccurence.push({"_id":memb._id,"member":memb.fullName, "occ":0})
+        if(data.data){
+            overdueOccurence.push({"_id":memb.member._id,"member":memb.member.fullName, "occ":0})
+        }
+        else overdueOccurence.push({"_id":memb._id,"member":memb.fullName, "occ":0})
     })
     
     lists.forEach(function(l) {

@@ -29,45 +29,47 @@ const DataToBoardActivityChart = (data) => {
     
     cardsLists.forEach(function(l) {
         l.cards.forEach(function(c) {
-            let cardDate = moment(c.createdAt).format("MM");
-            switch(cardDate){
-                case '01':
-                    cptJan+=1;
-                    break;
-                case '02':
-                    cptFeb+=1;
-                    break;
-                case '03':
-                    cptMar+=1;
-                    break;
-                case '04':
-                    cptApr+=1;
-                    break;
-                case '05':
-                    cptMay+=1;
-                    break;
-                case '06':
-                    cptJun+=1;
-                    break;
-                case '07':
-                    cptJul+=1;
-                    break;
-                case '08':
-                    cptAug+=1;
-                    break;
-                case '09':
-                    cptSep+=1;
-                    break;
-                case '10':
-                    cptOct+=1;
-                    break;
-                case '11':
-                    cptNov+=1;
-                    break;
-                case '12':
-                    cptDec+=1;
-                    break;
-                default:
+            if(c.createdAt){
+                let cardDate = moment(c.createdAt).format("MM");
+                switch(cardDate){
+                    case '01':
+                        cptJan+=1;
+                        break;
+                    case '02':
+                        cptFeb+=1;
+                        break;
+                    case '03':
+                        cptMar+=1;
+                        break;
+                    case '04':
+                        cptApr+=1;
+                        break;
+                    case '05':
+                        cptMay+=1;
+                        break;
+                    case '06':
+                        cptJun+=1;
+                        break;
+                    case '07':
+                        cptJul+=1;
+                        break;
+                    case '08':
+                        cptAug+=1;
+                        break;
+                    case '09':
+                        cptSep+=1;
+                        break;
+                    case '10':
+                        cptOct+=1;
+                        break;
+                    case '11':
+                        cptNov+=1;
+                        break;
+                    case '12':
+                        cptDec+=1;
+                        break;
+                    default:
+                }
             }
         })
     });
