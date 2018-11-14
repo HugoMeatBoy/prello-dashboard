@@ -3,8 +3,14 @@ import * as moment from 'moment';
 
 const DataToDueDateChart = (data) => {
     
-    var lists = data.board.lists;
-
+    var lists = [];
+    
+    if(data.board){
+        lists = data.board.lists;
+    }
+    else if(data.data){
+        lists = data.data.lists;
+    }
     var cardChartsData = {};  
     var labelsList = [];  
     var resultList = [];
@@ -28,6 +34,9 @@ const DataToDueDateChart = (data) => {
     },{
         "label": "More than 1 month",
         "occ":0,
+    },{
+        "label": "No due date",
+        "occ":0,
     }]
     
 
@@ -38,7 +47,7 @@ const DataToDueDateChart = (data) => {
     
     lists.forEach(function(l) {
         l.cards.forEach(function(c) {
-            if(c.dueDate.length>0){
+            if(c.dueDate && c.dueDate.length>0){
                 if(moment(c.dueDate).diff(moment(), 'days')<0){
                     dueDateOccurence.forEach(function(date){
                         if(date.label === "Overdue"){
@@ -81,6 +90,13 @@ const DataToDueDateChart = (data) => {
                         }
                     })
                 }
+            }
+            else {
+                dueDateOccurence.forEach(function(date){
+                    if(date.label === "No due date"){
+                        date.occ+=1
+                    }
+                })
             }
         })  
     })

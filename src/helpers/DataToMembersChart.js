@@ -3,10 +3,21 @@ import * as moment from 'moment';
 
 const DataToMembersChart = (data) => {
     
-    var lists = data.board.lists;
+    var lists = [];
+
+    if(data.board){
+        lists = data.board.lists
+    }
+    else lists = data.data.lists
+
+    var membersList = [];
+
+    if(data.board){
+        membersList = data.board.members
+    }
+    else membersList = data.data.members
 
     var cardChartsData = {};
-    var membersList = data.board.members;
     var membersOccurence = [];
     var overdueOccurence = [];
 
@@ -29,7 +40,7 @@ const DataToMembersChart = (data) => {
     lists.forEach(function(l) {
         l.cards.forEach(function(c) {
             if(c.members.length>0){
-                if(c.dueDate.length>0 && moment(c.dueDate).diff(moment(), 'days')<0){
+                if(c.dueDate && c.dueDate.length>0 && moment(c.dueDate).diff(moment(), 'days')<0){
                     c.members.forEach(function(cardMember){
                         console.log(cardMember)
                         overdueOccurence.forEach(function(memb){

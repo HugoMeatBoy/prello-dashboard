@@ -2,7 +2,14 @@
 
 const DataToCardsListChart = (data) => {
     
-    var lists = data.board.lists;
+    var lists = [];
+    
+    if(data.board){
+        lists = data.board.lists;
+    }
+    else if(data.data){
+        lists = data.data.lists;
+    }
 
     var cardChartsData = {};
     var listNameList = [];

@@ -3,7 +3,14 @@ import * as moment from 'moment';
 // ===== BOARD ACTIVITY =====
 const DataToBoardActivityChart = (data) => {
     
-    var cardsLists = data.board.lists;
+    var cardsLists = [];
+    
+    if(data.board){
+        cardsLists = data.board.lists;
+    }
+    else if(data.data){
+        cardsLists = data.data.lists;
+    }
 
     var boardChartsData = {};
     var cptJan = 0;
