@@ -219,7 +219,7 @@ class BoardStatComp extends React.Component {
                         datasets:[{
                             label: "Cards per label",
                             data: cardLabels.data,
-                            backgroundColor: cardLabels.cols,
+                            backgroundColor: cardLabels.backgroundColor,
                             borderColor: '#000000',
                             fill: false,
                         }]
