@@ -9,4 +9,4 @@ COPY . .
 RUN npm run build 
 RUN yarn global add serve
 EXPOSE 3000
-CMD [ "npm", "run", "now-start" ]
+CMD [ "npm", "run", "start" ]
