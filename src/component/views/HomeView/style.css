@@ -1,0 +1,72 @@
+.importData{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboardTitle{
+    flex:3;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.importFileForm{
+    flex:1
+}
+
+footer {
+    font-family: Nunito, Helvetica, Arial, sans-serif;
+}
+
+
+.homeHeader{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    background-color: #eeeeee;
+}
+
+.importFileHomeForm{
+    flex:1;    
+}
+
+.homeTitle{
+    flex:3;
+}
+
+.homeTitle h1{
+    font-size: 3rem;
+    color: #004a75;
+    padding-top:40px; 
+}
+
+
+.importFileHomeForm{
+    padding-top: 50px; 
+    display: flex;
+}
+
+.browseFileBtn{
+    font-size: 16px;
+}
+
+
+.homeInfo{
+    background-color: #eeeeee;
+}
+
+.homeLogo{
+    background-color: #eeeeee;
+}
+
+.titleInfo{
+    text-align: center;
+}
+
+.textInfo{
+    text-align: center;
+}
+
+.infoPanel{
+    padding: 20px;
+}

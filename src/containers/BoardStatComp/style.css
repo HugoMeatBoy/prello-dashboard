@@ -1,0 +1,92 @@
+.boardSettingsBar {
+    background-color: #eee;
+    flex: none;
+    margin: 0 0px;
+    margin-bottom: 10px;
+}
+
+.boardName {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+.boardSettingsBtn {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin-right: 5px;
+}
+
+.boardSettingsBtn:hover {
+    cursor: pointer;
+}
+
+.starBtn:hover {
+    color: rgb(227, 227, 79)
+}
+
+.boardStatsPanel {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.chartTitle {
+    text-align: center;
+    display: inline-block;
+    font-size: 1.5rem;
+    flex: none;
+    width:100%;
+}
+
+.dataType {
+    text-align: center;
+    padding: 10px;
+}
+
+.dataValues {
+    padding: 10px 10px 30px 10px;
+    background-color: #dbdbed !important;
+    border-radius: 0.25rem !important;
+}
+.dataValues .row{
+    margin-bottom: 20px;
+}
+
+.dataOverview{
+    background-color: #00546f;
+    color:  #ebebfd
+}
+
+.statsTitle {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+
+.statsPanel{
+    display: flex;
+    justify-content: space-between;
+}
+
+.overviewPanel{
+    flex: 1;
+    justify-content: space-around;
+    padding: 50px 50px 50px 30px;
+}
+
+.tabsPanel{
+    flex: 3;
+    justify-content: space-between;
+}
+
+.boardSettingsBar{
+    display: flex;
+    background-color: #eeeeee;
+}
+

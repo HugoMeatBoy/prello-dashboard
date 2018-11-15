@@ -1,0 +1,27 @@
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    height: calc(100% - 50px);
+}
+
+.link {
+    background-color: #000057;
+    color: #e8e8e8;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    padding: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    vertical-align: middle;
+}
+
+.link:hover {
+    color: #eed774;
+    transition: 0.3s;
+    text-decoration: none;
+}

@@ -1,0 +1,14 @@
+.importData{
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboardTitle{
+    flex:3;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.importFileForm{
+    flex:1
+}
