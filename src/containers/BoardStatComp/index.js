@@ -22,6 +22,8 @@ import DataToCardLabelsChart from "../../helpers/DataToCardLabelsChart";
 import DataToDueDateChart from "../../helpers/DataToDueDateChart";
 import DataToMembersChart from "../../helpers/DataToMembersChart";
 
+import JsonInputValidator from "../../validators/JsonInputValidator";
+
 // ===== Components / Containers
 
 // ===== Actions
@@ -42,6 +44,7 @@ class BoardStatComp extends React.Component {
             labelsData:{},
             dueDateData:{},
             cardsPerMemberData:{},
+            errorMessage:'',
         }
 
         this.handleFileChange = this.handleFileChange.bind(this);
@@ -49,123 +52,136 @@ class BoardStatComp extends React.Component {
 
         this.fileReader.onload = (event) => {
 
-            var gen = DataToGeneral(JSON.parse(event.target.result));
-            var cardsList = DataToCardsListChart(JSON.parse(event.target.result));
-            var board = DataToBoardActivityChart(JSON.parse(event.target.result));
-            var cardLabels = DataToCardLabelsChart(JSON.parse(event.target.result));
             
-            var dueDates = DataToDueDateChart(JSON.parse(event.target.result));
-            var members = DataToMembersChart(JSON.parse(event.target.result));
+            if(JsonInputValidator(event.target.result)){
+                this.setState({ file: JSON.parse(event.target.result) });
+
+                var gen = DataToGeneral(JSON.parse(event.target.result));
+                var cardsList = DataToCardsListChart(JSON.parse(event.target.result));
+                var board = DataToBoardActivityChart(JSON.parse(event.target.result));
+                var cardLabels = DataToCardLabelsChart(JSON.parse(event.target.result));
+                
+                var dueDates = DataToDueDateChart(JSON.parse(event.target.result));
+                var members = DataToMembersChart(JSON.parse(event.target.result));
 
 
-            if(gen){
-                this.setState({
-                    ...this.state,
-                    general:{
-                        listsNumber: gen.listsNumber,
-                        cardsNumber: gen.cardsNumber,
-                        membersNumber: gen.membersNumber,
-                        checklistsCompleted: gen.checklistsCompleted,
-                        lastCardCreated: gen.lastCardCreated,
-                        firstCardCreated: gen.firstCardCreated
-                    },
+                if(gen){
+                    this.setState({
+                        ...this.state,
+                        general:{
+                            listsNumber: gen.listsNumber,
+                            cardsNumber: gen.cardsNumber,
+                            membersNumber: gen.membersNumber,
+                            checklistsCompleted: gen.checklistsCompleted,
+                            lastCardCreated: gen.lastCardCreated,
+                            firstCardCreated: gen.firstCardCreated
+                        },
 
-                })
+                    })
+                }
+                if(cardsList){
+                    this.setState({
+                        ...this.state,
+                        cardsData:{
+                            ...this.state.cardsData,
+                            labels: cardsList.labels,
+                            datasets:[{
+                                data: cardsList.data,
+                                backgroundColor: [
+                                    '#FF2284',
+                                    '#c48b56',
+                                    '#6ed589',
+                                    '#50000d',
+                                    '#55aaaa',
+                                    '#55addd',
+                                    '#55a055',
+                                    '#55a05a'
+                                    ]
+                            }]
+                        },
+                    })
+                }
+                if(board){
+                    this.setState({
+                        ...this.state,
+                        boardActivityData:{
+                            ...this.state.boardActivityData,
+                            labels: board.labels,
+                            datasets:[{
+                                label: "Created cards",
+                                data: board.dates,
+                                backgroundColor: '#36a2eb',
+                                borderColor: '#36a2eb',
+                                fill: false,
+                            }]
+                        },
+                    })
+                }
+                if(cardLabels){
+                    this.setState({
+                        ...this.state,
+                        labelsData:{
+                            ...this.state.labelsData,
+                            labels: cardLabels.labels,
+                            datasets:[{
+                                label: "Cards per label",
+                                data: cardLabels.data,
+                                backgroundColor: cardLabels.backgroundColor,
+                                borderColor: '#000000',
+                                fill: false,
+                            }]
+                        },
+                    })
+                }
+                if(dueDates){
+                    this.setState({
+                        ...this.state,
+                        dueDateData:{
+                            ...this.state.dueDateData,
+                            labels: dueDates.labels,
+                            datasets:[{
+                                label: "Due dates",
+                                data: dueDates.data,
+                                backgroundColor: dueDates.cols
+                            }]
+                        }
+                    })
+                }
+                if(members){
+                    this.setState({
+                        ...this.state,
+                        cardsPerMemberData:{
+                            ...this.state.cardsPerMemberData,
+                            labels: members.labels,
+                            datasets:[{
+                                label: "Overdue",
+                                data: members.dataOverdue,
+                                backgroundColor: members.overdueCols,
+                            },{
+                                label: "Due later",
+                                data: members.dataInTime,
+                                backgroundColor: members.inTimeCols,
+                            }]
+                        }
+                    })
+                }
+            }else{
+                console.log('NOT OKAY');
             }
-            if(cardsList){
-                this.setState({
-                    ...this.state,
-                    cardsData:{
-                        ...this.state.cardsData,
-                        labels: cardsList.labels,
-                        datasets:[{
-                            data: cardsList.data,
-                            backgroundColor: [
-                                '#FF2284',
-                                '#c48b56',
-                                '#6ed589',
-                                '#50000d',
-                                '#55aaaa',
-                                '#55addd',
-                                '#55a055',
-                                '#55a05a'
-                                ]
-                        }]
-                    },
-                })
-            }
-            if(board){
-                this.setState({
-                    ...this.state,
-                    boardActivityData:{
-                        ...this.state.boardActivityData,
-                        labels: board.labels,
-                        datasets:[{
-                            label: "Created cards",
-                            data: board.dates,
-                            backgroundColor: '#36a2eb',
-                            borderColor: '#36a2eb',
-                            fill: false,
-                        }]
-                    },
-                })
-            }
-            if(cardLabels){
-                this.setState({
-                    ...this.state,
-                    labelsData:{
-                        ...this.state.labelsData,
-                        labels: cardLabels.labels,
-                        datasets:[{
-                            label: "Cards per label",
-                            data: cardLabels.data,
-                            backgroundColor: cardLabels.backgroundColor,
-                            borderColor: '#000000',
-                            fill: false,
-                        }]
-                    },
-                })
-            }
-            if(dueDates){
-                this.setState({
-                    ...this.state,
-                    dueDateData:{
-                        ...this.state.dueDateData,
-                        labels: dueDates.labels,
-                        datasets:[{
-                            label: "Due dates",
-                            data: dueDates.data,
-                            backgroundColor: dueDates.cols
-                        }]
-                    }
-                })
-            }
-            if(members){
-                this.setState({
-                    ...this.state,
-                    cardsPerMemberData:{
-                        ...this.state.cardsPerMemberData,
-                        labels: members.labels,
-                        datasets:[{
-                            label: "Overdue",
-                            data: members.dataOverdue,
-                            backgroundColor: members.overdueCols,
-                        },{
-                            label: "Due later",
-                            data: members.dataInTime,
-                            backgroundColor: members.inTimeCols,
-                        }]
-                    }
-                })
-            }
+
+            
 
         
-            this.setState({ file: JSON.parse(event.target.result) });
         };
     }
 
     handleFileChange(selectedFiles){
-        this.fileReader.readAsText(selectedFiles[0]);
+        var x = selectedFiles[0].size;
+        if(x < 5000000){
+            this.fileReader.readAsText(selectedFiles[0]);
+        }else{
+            console.log('too much senpai');
+        }
     }
 
     render() {          
