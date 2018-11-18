@@ -10,16 +10,18 @@ import './style.css';
 
 const ImportDataHeader = props =>(    
     <Fragment>
-        <div className="dashboardTitle">
-            <div>
-                <h1>Dashboard for prello</h1>
-                <p>Designed by group 2.2</p>
-                <hr />
+        <div className="homeHeader">
+            <div className="homeTitle">
+                <h1>Dashboard for Prello</h1>
+                <b>Designed by group 2.2</b>
             </div>
-        </div>
-        <div className="importFileForm">
-            <p className="importText">Import your json file</p>
-            <input id="fileImported" type="file" className="browseFileBtn" onChange={ (e) => props.handleFileChange(e.target.files) } /> 
+            <div className="importFileHomeForm">
+                <p className="importText">
+                    Import your JSON file
+                    {' '}
+                    <input id="fileImported" type="file" className="browseFileBtn" onChange={ (e) => props.handleFileChange(e.target.files) } /> 
+                </p>
+            </div>
         </div>
     </Fragment>
 )

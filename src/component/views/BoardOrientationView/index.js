@@ -7,12 +7,10 @@ import './style.css';
 // ==================================
 
 const BoardOrientationView = props =>(
-    <div className="col-sm-6 dataType">
+    <div className="col-sm-12 dataType">
         <div className="dataValues">
             <Radar 
                 data = {props.data}
-                width={50}
-                height={50}
                 options={{
                     title: {
                         display: true,

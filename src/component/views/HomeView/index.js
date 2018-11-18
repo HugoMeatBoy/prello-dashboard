@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -9,23 +9,23 @@ import './style.css';
 // ==================================
 
 const HomeView = props =>(    
-    <Fragment>
+    <div className="content">
         <div className="homeHeader">
             <div className="homeTitle">
-                <div>
-                    <h1>Dashboard for prello</h1>
-                    <b>Designed by group 2.2</b>
-                    <hr />
-                </div>
+                <h1>Dashboard for Prello</h1>
+                <b>Designed by Group 2.2</b>
             </div>
             <div className="importFileHomeForm">
-                <p className="importText">Import your json file  !  </p>
-                <input id="fileImported" type="file" onChange={ (e) => props.handleFileChange(e.target.files) } /> 
+                <p className="importText">
+                    Import your json file
+                    {''}
+                    <input id="fileImported" type="file" onChange={ (e) => props.handleFileChange(e.target.files) } /> 
+                </p>
             </div>
         </div>
         <div className="homeInfo">
             <div className="infoPanel">
-                <h4 className="titleInfo">Supervize your prello projets</h4>
+                <h4 className="titleInfo">Supervize your Prello projets</h4>
                 <p className="textInfo">Manage the data from your board on various charts</p>
             </div>
             
@@ -52,7 +52,7 @@ const HomeView = props =>(
             <hr />
             <b>Created by Hugo FAZIO - Kévin HASSAN - Cyprien LEGRAND - Clément LOUBIERE - Clément ROIG</b>
         </footer>
-    </Fragment>
+    </div>
 )
 
 HomeView.propTypes = {

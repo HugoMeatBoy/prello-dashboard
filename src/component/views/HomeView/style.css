@@ -1,3 +1,8 @@
+body {
+    background: url('../../../assets/prello_dashboard_background.jpg');
+    background-size: 100% 100%;
+}
+
 .importData{
     justify-content: space-around;
     align-items: center;
@@ -17,21 +22,21 @@ footer {
     font-family: Nunito, Helvetica, Arial, sans-serif;
 }
 
-
 .homeHeader{
+    border-bottom: 1px solid #bbb;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
-    text-align: center;
     justify-content: space-around;
-    background-color: #eeeeee;
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 .importFileHomeForm{
-    flex:1;    
+    flex:2;    
 }
 
 .homeTitle{
-    flex:3;
+    flex:5;
 }
 
 .homeTitle h1{
@@ -50,14 +55,6 @@ footer {
     font-size: 16px;
 }
 
-
-.homeInfo{
-    background-color: #eeeeee;
-}
-
-.homeLogo{
-    background-color: #eeeeee;
-}
 
 .titleInfo{
     text-align: center;

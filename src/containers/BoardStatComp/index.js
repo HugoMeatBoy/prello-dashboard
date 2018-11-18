@@ -180,70 +180,66 @@ class BoardStatComp extends React.Component {
         if(x < 5000000){
             this.fileReader.readAsText(selectedFiles[0]);
         }else{
-            console.log('too much senpai');
+            alert('Your JSON file is too big...')
         }
     }
 
     render() {          
+        console.log(this.state)
             return (this.state.file ? (
                 
                 <div className="boardStatsPanel">
-                    <div className="row">
-                        <div className="col-sm-12 boardSettingsBar">
-                            <ImportDataHeader 
-                                handleFileChange={this.handleFileChange} />
+                
+                    <ImportDataHeader 
+                        handleFileChange={this.handleFileChange} 
+                    />
+
+                    <h1 className="boardName">{this.state.file.board ? this.state.file.board.name  : ''}</h1>
+                
+
+                    <div className="statsPanel">
+                        <div className="overviewPanel">
+                            <GeneralInfoView data={this.state.general}/>
+                        </div>
+                        
+
+                        <div className="tabsPanel">
+                            <Tabs>
+                                <TabList>
+                                    <Tab>Cards</Tab>
+                                    <Tab>Board</Tab>
+                                    <Tab>Members</Tab>
+                                </TabList>
+
+                            <TabPanel>
+                                <div className="row">
+                                    <ListCardsView data={this.state.cardsData}/>
+                                    <CardLabelView data={this.state.labelsData}/>
+                                </div>
+                            </TabPanel>
+
+                            <TabPanel>
+                                <div className="row">
+                                    <BoardActivityView data={this.state.boardActivityData}/>
+                                    <DueDateView data={this.state.dueDateData}/>
+                                </div>
+                                <div className="row">
+                                    <BoardOrientationView data={this.state.labelsData}/>
+                                </div>
+                            </TabPanel>
+
+                            <TabPanel>
+                                <div className="row">
+                                    <MembersCardsView data={this.state.cardsPerMemberData}/>
+                                </div>
+                            </TabPanel>
+                            </Tabs>
                         </div>
                     </div>
-                <div className="boardNameRow">
-                    <h1 className="boardName">{this.props.board ? this.props.board.name  : ''}</h1>
                 </div>
-
-                <div className="statsPanel">
-                    <div className="overviewPanel">
-                        <GeneralInfoView data={this.state.general}/>
-                    </div>
-                    
-
-                    <div className="tabsPanel">
-                        <Tabs>
-                            <TabList>
-                                <Tab>Cards</Tab>
-                                <Tab>Board</Tab>
-                                <Tab>Members</Tab>
-                            </TabList>
-
-                        <TabPanel>
-                            <div className="row">
-                                <ListCardsView data={this.state.cardsData}/>
-                                <CardLabelView data={this.state.labelsData}/>
-                            </div>
-                        </TabPanel>
-
-                        <TabPanel>
-                            <div className="row">
-                                <BoardActivityView data={this.state.boardActivityData}/>
-                                <DueDateView data={this.state.dueDateData}/>
-                            </div>
-                            <div className="row">
-                                <BoardOrientationView data={this.state.labelsData}/>
-                            </div>
-                        </TabPanel>
-
-                        <TabPanel>
-                            <div className="row">
-                                <MembersCardsView data={this.state.cardsPerMemberData}/>
-                            </div>
-                        </TabPanel>
-                        </Tabs>
-                    </div>
-                </div>
-            </div>
             ) : (
-         
                 <HomeView handleFileChange={this.handleFileChange} />
-                
             )
-            
         );
     }
 }
