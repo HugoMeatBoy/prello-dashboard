@@ -100,7 +100,7 @@ const DataToDueDateChart = (data) => {
 
     const colors = [];
 
-    const dynamicColors = function () {
+    const dynamicColors = () => {
         const r = Math.floor(Math.random() * 255);
         const g = Math.floor(Math.random() * 255);
         const b = Math.floor(Math.random() * 255);
