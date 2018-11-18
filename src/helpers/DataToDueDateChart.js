@@ -46,7 +46,8 @@ const DataToDueDateChart = (data) => {
     lists.forEach((l) => {
         l.cards.forEach((c) => {
             if (c.dueDate && c.dueDate) {
-                if (c.dueDate.date) { // case dueDate:{isDone: bool,date: date}
+                // ===== case dueDate:{isDone: bool,date: date}
+                if (c.dueDate.date) { 
                     if (moment(c.dueDate.date).diff(moment(), 'days') < 0) {
                         dueDateOccurence.forEach((date) => {
                             if (date.label === 'Overdue') {
@@ -84,6 +85,7 @@ const DataToDueDateChart = (data) => {
                             }
                         });
                     }
+                // ===== case dueDate: date
                 } else if (moment(c.dueDate).diff(moment(), 'days') < 0) { // case dueDate: date
                     dueDateOccurence.forEach((date) => {
                         if (date.label === 'Overdue') {
