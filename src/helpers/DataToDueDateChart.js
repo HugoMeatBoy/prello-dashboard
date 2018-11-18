@@ -45,8 +45,48 @@ const DataToDueDateChart = (data) => {
 
     lists.forEach((l) => {
         l.cards.forEach((c) => {
-            if (c.dueDate && c.dueDate.length > 0) {
-                if (moment(c.dueDate).diff(moment(), 'days') < 0) {
+            if (c.dueDate && c.dueDate) {
+                // ===== case dueDate:{isDone: bool,date: date}
+                if (c.dueDate.date) { 
+                    if (moment(c.dueDate.date).diff(moment(), 'days') < 0) {
+                        dueDateOccurence.forEach((date) => {
+                            if (date.label === 'Overdue') {
+                                date.occ += 1;
+                            }
+                        });
+                    } else if (moment(c.dueDate.date).diff(moment(), 'days') < 1) {
+                        dueDateOccurence.forEach((date) => {
+                            if (date.label === 'Due today') {
+                                date.occ += 1;
+                            }
+                        });
+                    } else if (moment(c.dueDate.date).diff(moment(), 'days') < 2) {
+                        dueDateOccurence.forEach((date) => {
+                            if (date.label === 'Due tomorrow') {
+                                date.occ += 1;
+                            }
+                        });
+                    } else if (moment(c.dueDate.date).diff(moment(), 'weeks') < 1) {
+                        dueDateOccurence.forEach((date) => {
+                            if (date.label === 'Later this week') {
+                                date.occ += 1;
+                            }
+                        });
+                    } else if (moment(c.dueDate.date).diff(moment(), 'months') < 1) {
+                        dueDateOccurence.forEach((date) => {
+                            if (date.label === 'Later this month') {
+                                date.occ += 1;
+                            }
+                        });
+                    } else {
+                        dueDateOccurence.forEach((date) => {
+                            if (date.label === 'More than 1 month') {
+                                date.occ += 1;
+                            }
+                        });
+                    }
+                // ===== case dueDate: date
+                } else if (moment(c.dueDate).diff(moment(), 'days') < 0) { // case dueDate: date
                     dueDateOccurence.forEach((date) => {
                         if (date.label === 'Overdue') {
                             date.occ += 1;

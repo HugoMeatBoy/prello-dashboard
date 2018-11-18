@@ -28,6 +28,8 @@
 
 .boardStatsPanel {
     background: url('../../assets/prello_dashboard_background.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
     display: flex;
     flex-direction: column;
     flex: 1;

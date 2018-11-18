@@ -78,21 +78,14 @@ const DataToMembersChart = (data) => {
         overdueResultsList.push(member.occ);
     });
 
-    const dynamicColors = () => {
-        const r = Math.floor(Math.random() * 255);
-        const g = Math.floor(Math.random() * 255);
-        const b = Math.floor(Math.random() * 255);
-        return `rgb(${r},${g},${b})`;
-    };
-
     const overdueColors = [];
 
-    overdueResultsList.map(() => (overdueColors.push(dynamicColors())));
+    overdueResultsList.map(() => (overdueColors.push('#ff9f40')));
 
 
     const inTimeColors = [];
 
-    inTimeResultsList.map(() => (inTimeColors.push(dynamicColors())));
+    inTimeResultsList.map(() => (inTimeColors.push('#55a05a')));
 
 
     cardChartsData.labels = labelsList;
