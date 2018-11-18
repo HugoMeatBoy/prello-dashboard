@@ -87,16 +87,7 @@ class BoardStatComp extends React.Component {
                             labels: cardsList.labels,
                             datasets:[{
                                 data: cardsList.data,
-                                backgroundColor: [
-                                    '#FF2284',
-                                    '#c48b56',
-                                    '#6ed589',
-                                    '#50000d',
-                                    '#55aaaa',
-                                    '#55addd',
-                                    '#55a055',
-                                    '#55a05a'
-                                    ]
+                                backgroundColor: cardsList.cols,
                             }]
                         },
                     })

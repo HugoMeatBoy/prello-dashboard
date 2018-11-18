@@ -26,8 +26,23 @@ const DataToCardsListChart = (data) => {
         resultList.push(cptCards);
     })
 
+    var colors = [];
+
+    var dynamicColors = function() {
+        var r = Math.floor(Math.random() * 255);
+        var g = Math.floor(Math.random() * 255);
+        var b = Math.floor(Math.random() * 255);
+        return "rgb(" + r + "," + g + "," + b + ")";
+     }
+
+     for (var i in resultList) {
+        colors.push(dynamicColors());
+     }
+
+
     cardChartsData.labels = listNameList;
     cardChartsData.data = resultList;
+    cardChartsData.cols = colors;
 
     return cardChartsData;
 };
