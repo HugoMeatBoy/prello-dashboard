@@ -6,7 +6,7 @@ import './style.css';
 
 const App = () => (
     <div className="appContainer">
-    <Header />
+        <Header />
         <main>
             <BoardStatComp />
         </main>
