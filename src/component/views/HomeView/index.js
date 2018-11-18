@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 // ===== Others
 import './style.css';
+import IGLogo from '../../../assets/ig_logo.png';
+import PolytechLogo from '../../../assets/polytech_montpellier_logo.png';
 
 
 // ==================================
@@ -32,14 +34,14 @@ const HomeView = props => (
             <div className="row text-center homeLogo">
                 <div className="col-sm-6">
                     <img
-                        src="http://www.sietmanagement.fr/wp-content/uploads/2016/05/Polytech-Montpellier.png"
+                        src={ PolytechLogo }
                         width="200"
                         alt="Logo Polytech Montpellier"
                     />
                 </div>
                 <div className="col-sm-6">
                     <img
-                        src="http://asa.polytech.univ-montp2.fr/polymap/files/picto/IG.png"
+                        src={ IGLogo }
                         width="100"
                         alt="Informatique et Gestion logo"
                     />
