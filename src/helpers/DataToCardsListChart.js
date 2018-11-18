@@ -17,7 +17,7 @@ const DataToCardsListChart = (data) => {
         let cptCards = 0;
 
         l.cards.forEach(() => {
-            cptCards++;
+            cptCards += 1;
         });
 
         listNameList.push(l.name);

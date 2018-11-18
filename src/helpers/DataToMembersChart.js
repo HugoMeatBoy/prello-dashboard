@@ -6,7 +6,9 @@ const DataToMembersChart = (data) => {
 
     if (data.board) {
         lists = data.board.lists;
-    } else lists = data.data.lists;
+    } else if (data.data) {
+        lists = data.data.lists;
+    }
 
     let membersList = [];
 
