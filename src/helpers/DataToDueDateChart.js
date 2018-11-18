@@ -107,9 +107,7 @@ const DataToDueDateChart = (data) => {
         return `rgb(${r},${g},${b})`;
     };
 
-    for (const i in resultList) {
-        colors.push(dynamicColors());
-    }
+    resultList.map(() => (colors.push(dynamicColors())));
 
     cardChartsData.labels = labelsList;
     cardChartsData.data = resultList;
