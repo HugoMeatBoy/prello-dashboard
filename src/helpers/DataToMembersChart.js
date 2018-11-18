@@ -76,17 +76,22 @@ const DataToMembersChart = (data) => {
         overdueResultsList.push(member.occ);
     });
 
+    const dynamicColors = () => {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        return `rgb(${r},${g},${b})`;
+    };
+
     const overdueColors = [];
 
-    for (var i in overdueResultsList) {
-        overdueColors.push('#ff9f40');
-    }
+    overdueResultsList.map(() => (overdueColors.push(dynamicColors())));
+
 
     const inTimeColors = [];
 
-    for (var i in inTimeResultsList) {
-        inTimeColors.push('#55a05a');
-    }
+    inTimeResultsList.map(() => (inTimeColors.push(dynamicColors())));
+
 
     cardChartsData.labels = labelsList;
     cardChartsData.dataInTime = inTimeResultsList;

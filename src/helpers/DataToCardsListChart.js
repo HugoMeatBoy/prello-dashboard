@@ -16,7 +16,7 @@ const DataToCardsListChart = (data) => {
     lists.forEach((l) => {
         let cptCards = 0;
 
-        l.cards.forEach((c) => {
+        l.cards.forEach(() => {
             cptCards++;
         });
 
@@ -26,16 +26,14 @@ const DataToCardsListChart = (data) => {
 
     const colors = [];
 
-    const dynamicColors = function () {
+    const dynamicColors = () => {
         const r = Math.floor(Math.random() * 255);
         const g = Math.floor(Math.random() * 255);
         const b = Math.floor(Math.random() * 255);
         return `rgb(${r},${g},${b})`;
     };
 
-    for (const i in resultList) {
-        colors.push(dynamicColors());
-    }
+    resultList.map(() => (colors.push(dynamicColors())));
 
 
     cardChartsData.labels = listNameList;
