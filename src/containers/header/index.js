@@ -20,6 +20,4 @@ class Header extends React.Component {
     }
 }
 
-// Put info from the store state in props (None)
-
 export default Header

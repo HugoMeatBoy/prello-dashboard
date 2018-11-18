@@ -3,8 +3,6 @@ import * as moment from 'moment';
 
 // ===== GENERAL OVERVIEW
 const DataToGeneral = (data) => {
-
-    console.log(data)
     var cardsLists = [];
     
     if(data.board){

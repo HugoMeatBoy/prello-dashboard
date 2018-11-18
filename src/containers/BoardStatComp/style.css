@@ -1,13 +1,13 @@
 .boardSettingsBar {
-    background-color: #eee;
     flex: none;
     margin: 0 0px;
     margin-bottom: 10px;
 }
 
 .boardName {
+    color: #004a75;
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: 10px;
 }
 
@@ -27,6 +27,7 @@
 }
 
 .boardStatsPanel {
+    background: url('../../assets/prello_dashboard_background.jpg');
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -87,6 +88,5 @@
 
 .boardSettingsBar{
     display: flex;
-    background-color: #eeeeee;
 }
 

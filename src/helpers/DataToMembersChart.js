@@ -17,8 +17,6 @@ const DataToMembersChart = (data) => {
     }
     else membersList = data.data.members
 
-    console.log(membersList)
-
     var cardChartsData = {};
     var membersOccurence = [];
     var overdueOccurence = [];
@@ -53,9 +51,7 @@ const DataToMembersChart = (data) => {
             if(c.members.length>0){
                 if(c.dueDate && c.dueDate.length>0 && moment(c.dueDate).diff(moment(), 'days')<0){
                     c.members.forEach(function(cardMember){
-                        console.log(cardMember)
                         overdueOccurence.forEach(function(memb){
-                            console.log(memb._id)
                             if(memb._id === cardMember){
                                 memb.occ+=1
                             }

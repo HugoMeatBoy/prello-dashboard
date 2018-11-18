@@ -11,49 +11,16 @@ const CardLabelView = props =>(
         <div className="dataValues">
             <Doughnut 
                 data = {props.data} 
-                width={30}
-                height={10}
+            
                 options={{
                     title: {
                         display: true,
-                        text: 'Cards labels',
+                        text: 'Cards per label',
                         fontSize: 20
                     },
                     maintainAspectRatio: true,
                     circumference: Math.PI,
                     rotation: Math.PI
-                }}
-            />
-        </div>
-        <div className="dataValues">
-            <Pie data = {props.data} 
-                width={20}
-                height={10}
-                options={{
-                    title: {
-                        display: false
-                    },
-                    maintainAspectRatio: true,
-                }}
-            />
-        </div>
-        <div className="dataValues">
-            <Bar data = {props.data} 
-                width={20}
-                height={10}
-                options={{
-                    legend: {
-                        display: false
-                    },
-                    maintainAspectRatio: true,
-                    scales:{
-                        yAxes:[{
-                            ticks:{
-                                suggestedMin: 0,
-                                suggestedMax: 11
-                            }
-                        }]
-                    }
                 }}
             />
         </div>
