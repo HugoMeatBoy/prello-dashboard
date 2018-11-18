@@ -8,7 +8,7 @@ import './style.css';
 
 // ==================================
 
-const HomeView = props =>(    
+const HomeView = props => (
     <div className="content">
         <div className="homeHeader">
             <div className="homeTitle">
@@ -19,7 +19,7 @@ const HomeView = props =>(
                 <p className="importText">
                     Import your json file
                     {''}
-                    <input id="fileImported" type="file" onChange={ (e) => props.handleFileChange(e.target.files) } /> 
+                    <input id="fileImported" type="file" onChange={e => props.handleFileChange(e.target.files)} />
                 </p>
             </div>
         </div>
@@ -28,7 +28,7 @@ const HomeView = props =>(
                 <h4 className="titleInfo">Supervize your Prello projets</h4>
                 <p className="textInfo">Manage the data from your board on various charts</p>
             </div>
-            
+
             <div className="row text-center homeLogo">
                 <div className="col-sm-6">
                     <img
@@ -46,16 +46,16 @@ const HomeView = props =>(
                 </div>
             </div>
         </div>
-        
-        
+
+
         <footer className="text-center">
             <hr />
             <b>Created by Hugo FAZIO - Kévin HASSAN - Cyprien LEGRAND - Clément LOUBIERE - Clément ROIG</b>
         </footer>
     </div>
-)
+);
 
 HomeView.propTypes = {
     handleFileChange: PropTypes.func.isRequired,
-}
-export default HomeView
+};
+export default HomeView;

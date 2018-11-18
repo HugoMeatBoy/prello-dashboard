@@ -2,122 +2,112 @@ import * as moment from 'moment';
 
 
 const DataToDueDateChart = (data) => {
-    
-    var lists = [];
-    
-    if(data.board){
+    let lists = [];
+
+    if (data.board) {
         lists = data.board.lists;
-    }
-    else if(data.data){
+    } else if (data.data) {
         lists = data.data.lists;
     }
-    var cardChartsData = {};  
-    var labelsList = [];  
-    var resultList = [];
+    const cardChartsData = {};
+    const labelsList = [];
+    const resultList = [];
 
     // create a list of object {Label: occurence}
-    var dueDateOccurence = [{
-        "label": "Overdue",
-        "occ": 0,
-    },{
-        "label": "Due today",
-        "occ":0,
-    },{
-        "label": "Due tomorrow",
-        "occ":0,
-    },{
-        "label": "Later this week",
-        "occ":0,
-    },{
-        "label": "Later this month",
-        "occ":0,
-    },{
-        "label": "More than 1 month",
-        "occ":0,
-    },{
-        "label": "No due date",
-        "occ":0,
-    }]
-    
+    const dueDateOccurence = [{
+        label: 'Overdue',
+        occ: 0,
+    }, {
+        label: 'Due today',
+        occ: 0,
+    }, {
+        label: 'Due tomorrow',
+        occ: 0,
+    }, {
+        label: 'Later this week',
+        occ: 0,
+    }, {
+        label: 'Later this month',
+        occ: 0,
+    }, {
+        label: 'More than 1 month',
+        occ: 0,
+    }, {
+        label: 'No due date',
+        occ: 0,
+    }];
 
-    dueDateOccurence.forEach(function(date){
-        labelsList.push(date.label)
-    })
 
-    
-    lists.forEach(function(l) {
-        l.cards.forEach(function(c) {
-            if(c.dueDate && c.dueDate.length>0){
-                if(moment(c.dueDate).diff(moment(), 'days')<0){
-                    dueDateOccurence.forEach(function(date){
-                        if(date.label === "Overdue"){
-                            date.occ+=1
+    dueDateOccurence.forEach((date) => {
+        labelsList.push(date.label);
+    });
+
+
+    lists.forEach((l) => {
+        l.cards.forEach((c) => {
+            if (c.dueDate && c.dueDate.length > 0) {
+                if (moment(c.dueDate).diff(moment(), 'days') < 0) {
+                    dueDateOccurence.forEach((date) => {
+                        if (date.label === 'Overdue') {
+                            date.occ += 1;
                         }
-                    })
-                }
-                else if(moment(c.dueDate).diff(moment(), 'days')<1){
-                    dueDateOccurence.forEach(function(date){
-                        if(date.label === "Due today"){
-                            date.occ+=1
+                    });
+                } else if (moment(c.dueDate).diff(moment(), 'days') < 1) {
+                    dueDateOccurence.forEach((date) => {
+                        if (date.label === 'Due today') {
+                            date.occ += 1;
                         }
-                    })
-                }
-                else if(moment(c.dueDate).diff(moment(), 'days')<2){
-                    dueDateOccurence.forEach(function(date){
-                        if(date.label === "Due tomorrow"){
-                            date.occ+=1
+                    });
+                } else if (moment(c.dueDate).diff(moment(), 'days') < 2) {
+                    dueDateOccurence.forEach((date) => {
+                        if (date.label === 'Due tomorrow') {
+                            date.occ += 1;
                         }
-                    })
-                }
-                else if(moment(c.dueDate).diff(moment(), 'weeks')<1){
-                    dueDateOccurence.forEach(function(date){
-                        if(date.label === "Later this week"){
-                            date.occ+=1
+                    });
+                } else if (moment(c.dueDate).diff(moment(), 'weeks') < 1) {
+                    dueDateOccurence.forEach((date) => {
+                        if (date.label === 'Later this week') {
+                            date.occ += 1;
                         }
-                    })
-                }
-                else if(moment(c.dueDate).diff(moment(), 'months')<1){
-                    dueDateOccurence.forEach(function(date){
-                        if(date.label === "Later this month"){
-                            date.occ+=1
+                    });
+                } else if (moment(c.dueDate).diff(moment(), 'months') < 1) {
+                    dueDateOccurence.forEach((date) => {
+                        if (date.label === 'Later this month') {
+                            date.occ += 1;
                         }
-                    })
-                }
-                else {
-                    dueDateOccurence.forEach(function(date){
-                        if(date.label === "More than 1 month"){
-                            date.occ+=1
+                    });
+                } else {
+                    dueDateOccurence.forEach((date) => {
+                        if (date.label === 'More than 1 month') {
+                            date.occ += 1;
                         }
-                    })
+                    });
                 }
-            }
-            else {
-                dueDateOccurence.forEach(function(date){
-                    if(date.label === "No due date"){
-                        date.occ+=1
+            } else {
+                dueDateOccurence.forEach((date) => {
+                    if (date.label === 'No due date') {
+                        date.occ += 1;
                     }
-                })
+                });
             }
-        })  
-    })
+        });
+    });
 
 
-    dueDateOccurence.forEach(function(date){
+    dueDateOccurence.forEach((date) => {
         resultList.push(date.occ);
-    })
+    });
 
-    var colors = [];
+    const colors = [];
 
-    var dynamicColors = function() {
-        var r = Math.floor(Math.random() * 255);
-        var g = Math.floor(Math.random() * 255);
-        var b = Math.floor(Math.random() * 255);
-        return "rgb(" + r + "," + g + "," + b + ")";
-     }
+    const dynamicColors = () => {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        return `rgb(${r},${g},${b})`;
+    };
 
-     for (var i in resultList) {
-        colors.push(dynamicColors());
-     }
+    resultList.map(() => (colors.push(dynamicColors())));
 
     cardChartsData.labels = labelsList;
     cardChartsData.data = resultList;

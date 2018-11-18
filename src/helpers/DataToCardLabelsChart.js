@@ -1,72 +1,66 @@
 const DataToCardLabelsChart = (data) => {
-    
-    var lists = [];
-    
-    if(data.board){
+    let lists = [];
+
+    if (data.board) {
         lists = data.board.lists;
-    }
-    else if(data.data){
+    } else if (data.data) {
         lists = data.data.lists;
     }
 
-    var cardChartsData = {};
-    var labelsList = [];
-    var labelsOccurence = [];
-    var labelsColors = [];
+    const cardChartsData = {};
+    const labelsList = [];
+    const labelsOccurence = [];
+    const labelsColors = [];
 
-    if(data.board){
-        data.board.labels.forEach(function(lab){
+    if (data.board) {
+        data.board.labels.forEach((lab) => {
             labelsList.push(lab.name);
             labelsColors.push(lab.color);
-        })
-    }
-    else {
-        data.data.labels.forEach(function(lab){
+        });
+    } else {
+        data.data.labels.forEach((lab) => {
             labelsList.push(lab.name);
             labelsColors.push(lab.color);
-        })
+        });
     }
 
     // create a list of object {Label: occurence}
-    labelsList.forEach(function(lab){
-        labelsOccurence.push({"label":lab, "occ":0})
-    })
+    labelsList.forEach((lab) => {
+        labelsOccurence.push({ label: lab, occ: 0 });
+    });
 
-    var resultList = [];
-    
-    lists.forEach(function(l) {
-        l.cards.forEach(function(c) {
-            if(c.labels.length>0){
-                c.labels.forEach(function(cardLab){
-                    labelsOccurence.forEach(function(lab){
-                        if(lab.label === cardLab.name){
-                            lab.occ += 1
+    const resultList = [];
+
+    lists.forEach((l) => {
+        l.cards.forEach((c) => {
+            if (c.labels.length > 0) {
+                c.labels.forEach((cardLab) => {
+                    labelsOccurence.forEach((lab) => {
+                        if (lab.label === cardLab.name) {
+                            lab.occ += 1;
                         }
-                    })
-                })
+                    });
+                });
             }
-        })
-
-        
-    })
+        });
+    });
 
 
-    labelsOccurence.forEach(function(lab){
+    labelsOccurence.forEach((lab) => {
         resultList.push(lab.occ);
-    })
+    });
 
-    var colors = [];
+    const colors = [];
 
-    var dynamicColors = function() {
-        var r = Math.floor(Math.random() * 255);
-        var g = Math.floor(Math.random() * 255);
-        var b = Math.floor(Math.random() * 255);
-        return "rgb(" + r + "," + g + "," + b + ")";
-     }
+    const dynamicColors = () => {
+        const r = Math.floor(Math.random() * 255);
+        const g = Math.floor(Math.random() * 255);
+        const b = Math.floor(Math.random() * 255);
+        return `rgb(${r},${g},${b})`;
+    };
 
-     for (var i in resultList) {
-        colors.push(dynamicColors());
-     }
+    resultList.map(() => (colors.push(dynamicColors())));
+
 
     cardChartsData.labels = labelsList;
     cardChartsData.data = resultList;

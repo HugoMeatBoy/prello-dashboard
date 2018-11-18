@@ -1,16 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 // ===== Others
 import './style.css';
 
 // ==================================
 
-const MembersNumberView = props => (    
+const MembersNumberView = props => (
     <div className="col-sm-6 dataType">
         <div className="dataValues">
-            Number of members attached to the board: <b>{props.data}</b>
+            Number of members attached to the board:
+            {' '}
+            <b>{props.data}</b>
         </div>
     </div>
-)
+);
 
-export default MembersNumberView
+MembersNumberView.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default MembersNumberView;

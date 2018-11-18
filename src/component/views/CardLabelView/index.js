@@ -1,30 +1,36 @@
 import React from 'react';
-import {Doughnut, Bar, Pie} from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 
 // ===== Others
 import './style.css';
 
+import PropTypes from 'prop-types';
+
 // ==================================
 
-const CardLabelView = props =>(
+const CardLabelView = props => (
     <div className="col-sm-6 dataType">
         <div className="dataValues">
-            <Doughnut 
-                data = {props.data} 
-            
+            <Doughnut
+                data={props.data}
+
                 options={{
                     title: {
                         display: true,
                         text: 'Cards per label',
-                        fontSize: 20
+                        fontSize: 20,
                     },
                     maintainAspectRatio: true,
                     circumference: Math.PI,
-                    rotation: Math.PI
+                    rotation: Math.PI,
                 }}
             />
         </div>
     </div>
-)
+);
 
-export default CardLabelView
+CardLabelView.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default CardLabelView;

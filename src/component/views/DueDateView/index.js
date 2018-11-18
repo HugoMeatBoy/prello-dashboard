@@ -1,44 +1,48 @@
 import React from 'react';
-import {Radar, Bar} from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+
+import PropTypes from 'prop-types';
 
 // ===== Others
 import './style.css';
 
 // ==================================
 
-const DueDateView = props =>(
+const DueDateView = props => (
     <div className="col-sm-6 dataType">
         <div className="dataValues">
-            <Bar data = {props.data} 
+            <Bar
+                data={props.data}
                 width={30}
                 height={20}
                 options={{
                     title: {
                         display: true,
                         text: 'Due dates',
-                        fontSize: 20
+                        fontSize: 20,
                     },
                     maintainAspectRatio: true,
                     legend: {
-                        display:false
+                        display: false,
                     },
                     scales: {
                         yAxes: [{
                             ticks: {
-                                suggestedMin:0,
-                                suggestedMax: 8
-                            }
-                        }]
-                    }
+                                suggestedMin: 0,
+                                suggestedMax: 8,
+                            },
+                        }],
+                    },
                 }}
             />
         </div>
     </div>
 
 
+);
 
+DueDateView.propTypes = {
+    data: PropTypes.object.isRequired,
+};
 
-
-)
-
-export default DueDateView
+export default DueDateView;
