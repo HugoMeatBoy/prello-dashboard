@@ -8,7 +8,7 @@ import './style.css';
 
 // ==================================
 
-const ImportDataHeader = props =>(    
+const ImportDataHeader = props => (
     <Fragment>
         <div className="homeHeader">
             <div className="homeTitle">
@@ -19,14 +19,14 @@ const ImportDataHeader = props =>(
                 <p className="importText">
                     Import your JSON file
                     {' '}
-                    <input id="fileImported" type="file" className="browseFileBtn" onChange={ (e) => props.handleFileChange(e.target.files) } /> 
+                    <input id="fileImported" type="file" className="browseFileBtn" onChange={e => props.handleFileChange(e.target.files)} />
                 </p>
             </div>
         </div>
     </Fragment>
-)
+);
 
 ImportDataHeader.propTypes = {
     handleFileChange: PropTypes.func.isRequired,
-}
-export default ImportDataHeader
+};
+export default ImportDataHeader;

@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // ===== Others
 import './style.css';
 
 // ==================================
 
-const GeneralInfoView = props =>(    
+const GeneralInfoView = props => (
     <div className="dataType dataOverview">
 
         <div className="rows">
@@ -20,21 +21,25 @@ const GeneralInfoView = props =>(
             <b className="rowData">{props.data.firstCardCreated}</b>
         </div>
         <div className="rowOverview">
-            <p className="rowTitle">Last card created: </p> 
-            <b className="rowData">{props.data.lastCardCreated}</b>  
+            <p className="rowTitle">Last card created: </p>
+            <b className="rowData">{props.data.lastCardCreated}</b>
         </div>
 
 
         <div className="rowOverview">
-            <p className="rowTitle">Cards completed:  </p> 
-            <b className="rowData">{props.data.checklistsCompleted}%</b>
+            <p className="rowTitle">Cards completed:  </p>
+            <b className="rowData">
+                {props.data.checklistsCompleted}
+                {' '}
+                %
+            </b>
         </div>
-        
+
         <div className="rowOverview">
             <p className="rowTitle">Number of lists in board: </p>
             <b className="rowData">{props.data.listsNumber}</b>
         </div>
-        <div className="rowOverview">    
+        <div className="rowOverview">
             <p className="rowTitle"> Number of cards in board: </p>
             <b className="rowData">{props.data.cardsNumber}</b>
         </div>
@@ -43,6 +48,10 @@ const GeneralInfoView = props =>(
             <b className="rowData">{props.data.membersNumber}</b>
         </div>
     </div>
-)
+);
 
-export default GeneralInfoView
+GeneralInfoView.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default GeneralInfoView;

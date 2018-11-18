@@ -4,8 +4,7 @@ const JsonInputValidator = (file) => {
     } catch (e) {
         return false;
     }
-    return true; 
-
-}
+    return true;
+};
 
 export default JsonInputValidator;

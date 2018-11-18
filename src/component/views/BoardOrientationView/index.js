@@ -1,5 +1,6 @@
 import React from 'react';
 import { Radar } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
 // ===== Others
 import './style.css';
@@ -28,5 +29,9 @@ const BoardOrientationView = props => (
         </div>
     </div>
 );
+BoardOrientationView.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
 
 export default BoardOrientationView;
